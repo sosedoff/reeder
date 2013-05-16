@@ -6,4 +6,6 @@ class Feed < ActiveRecord::Base
   validates :title,            presence: true
   validates :url,              presence: true, uniqueness: true
   validates :last_modified_at, presence: true
+
+  scope :recent, order('last_modified_at DESC')
 end

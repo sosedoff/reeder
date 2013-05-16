@@ -30,8 +30,33 @@ module Reeder
       ]
     end
 
+    helpers do
+      def json_response(data)
+        content_type :json, encoding: 'utf8'
+        data.to_json
+      end
+
+      def json_error(message, status=400)
+        halt(status, json_response(error: message, status: status))
+      end
+    end
+
     get '/' do
       erb :index
+    end
+
+    get '/feeds' do
+      json_response(Feed.recent)
+    end
+
+    get '/feeds/:id' do
+      feed = Feed.find_by_id(params[:id])
+
+      if feed.nil?
+        json_error("Feed does not exist", 404)
+      end
+
+      json_response(feed)
     end
   end
 end
