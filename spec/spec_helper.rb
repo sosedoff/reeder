@@ -20,15 +20,16 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :deletion
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
-    # TODO
+    DatabaseCleaner.start
   end
 
   config.after(:each) do
-    # TODO
+    DatabaseCleaner.clean
   end
 end
 
