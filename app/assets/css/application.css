@@ -114,7 +114,7 @@ header {
 header .inner { padding: 0 20px; }
 header a { 
 	color: #fff; 	
-	background: left 0px no-repeat url('../img/logo.png'); 
+	background: left 0px no-repeat url('/images/logo.png'); 
 	padding-left: 15px;
 }
 
@@ -204,7 +204,7 @@ header a {
 	float: left;
 	width: 30px; height: 30px;
 	line-height: 30px;
-	background: left 6px no-repeat url('../img/logo-blue.png');
+	background: left 6px no-repeat url('/images/logo-blue.png');
 }
 
 .controls.fixed .logo { display: block;	opacity: 1; }
