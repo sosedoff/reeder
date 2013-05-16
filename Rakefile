@@ -1,4 +1,6 @@
 require 'bundler/setup'
+require 'sinatra/activerecord/rake'
+require './application.rb'
 
 begin
   require 'rspec/core/rake_task'

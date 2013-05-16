@@ -72,6 +72,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   database_cleaner
   fabrication
   pg

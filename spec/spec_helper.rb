@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
 SimpleCov.start
 
@@ -6,9 +8,7 @@ require 'rack/test'
 require 'fabrication'
 require 'database_cleaner'
 
-ENV['RACK_ENV'] = 'test'
-
-require File.join(File.dirname(__FILE__), '..', 'application.rb')
+require './application'
 
 Fabrication.configure do |config|
   config.fabricator_path = 'spec/fabricators'
@@ -31,21 +31,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-end
-
-configure do
-  set :environment, :test
-  set :run, false
-  set :raise_errors, true
-  set :logging, false
-end
-
-def fixture_path
-  File.expand_path("../fixtures", __FILE__)
-end
-
-def fixture(file)
-  File.read(File.join(fixture_path, file))
 end
 
 def app

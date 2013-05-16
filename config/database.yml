@@ -1,0 +1,16 @@
+defaults: &defaults
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 
+  timeout: 5000
+
+development:
+  <<: *defaults 
+  database: reeder_development
+  
+test:
+  <<: *defaults
+  database: reeder_test

@@ -1,17 +1,19 @@
+require './environment'
+
 require 'sinatra'
 require 'sinatra/assetpack'
 require 'sinatra/activerecord'
 
 module Reeder
   class Application < Sinatra::Application
-    register Sinatra::AssetPack
-    register Sinatra::ActiveRecordExtension
-
     configure do
       set :root,       File.join(File.dirname(__FILE__), 'app')
       set :public_dir, 'app/assets'
       set :views,      'app/views'
     end
+
+    register Sinatra::AssetPack
+    register Sinatra::ActiveRecordExtension
 
     assets do
       serve '/js',     from: 'assets/js'
