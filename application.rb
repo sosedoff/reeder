@@ -27,7 +27,7 @@ module Reeder
       ]
 
       js :app, [
-        '/jquery.js',
+        '/js/jquery.js',
         '/js/application.js'
       ]
     end
@@ -41,9 +41,16 @@ module Reeder
       def json_error(message, status=400)
         halt(status, json_response(error: message, status: status))
       end
+
+      def trim(str, length=20)
+        str.size > length ? "#{str[0, length]}..." : str
+      end
     end
 
     get '/' do
+      @feeds = Feed.recent
+      @posts = Post.includes(:feed).recent.limit(100)
+
       erb :index
     end
 
