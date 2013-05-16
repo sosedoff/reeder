@@ -49,12 +49,11 @@ class Reeder::Application
     end
 
     links = OpmlParser.new.parse_feeds(data)
-    feeds = []
-
-    links.each do |url|
-      feeds << Feed.import(url)
+    
+    feeds = links.map do |l| 
+      Feed.create(title: l[:name], url: l[:url])
     end
-
+  
     json_response(feeds)
   end
 

@@ -7,7 +7,10 @@ class OpmlParser
     doc.xpath("//body//outline").inject([]) do |feeds, outline|
       next feeds if missing_fields? outline.attributes
 
-      feeds << outline.attributes["xmlUrl"].value
+      feeds << {
+        name: outline.attributes["title"].value,
+        url: outline.attributes["xmlUrl"].value
+      }
     end
   end
 
