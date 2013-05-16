@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>Dan Sosedoff subscriptions in Google Reader</title>
+    </head>
+    <body>
+        <outline text="A Fresh Cup" title="A Fresh Cup" type="rss"
+            xmlUrl="http://afreshcup.com/home/rss.xml" htmlUrl="http://afreshcup.com/home/"/>
+    </body>
+</opml>
