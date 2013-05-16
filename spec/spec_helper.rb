@@ -12,7 +12,7 @@ require './application'
 
 Fabrication.configure do |config|
   config.fabricator_path = 'spec/fabricators'
-  config.path_prefix     = File.dirname(__FILE__)
+  config.path_prefix     = '.'
   config.sequence_start  = 10000
 end
 

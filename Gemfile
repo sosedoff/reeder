@@ -9,6 +9,9 @@ gem 'activerecord'
 gem 'pg'
 gem 'thin'
 gem 'rake'
+gem 'loofah'
+gem 'feedzirra'
+gem 'json'
 
 group :development do
   gem 'shotgun'
