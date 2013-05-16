@@ -13,7 +13,7 @@ require 'config/initializers/sidekiq'
 
 autoload :Feed,       'app/models/feed'
 autoload :Post,       'app/models/post'
-
 autoload :FeedWorker, 'app/workers/feed_worker'
 autoload :FeedImport, 'lib/feed_import'
 autoload :FeedSync,   'lib/feed_sync'
+autoload :OpmlParser, 'lib/opml_parser'

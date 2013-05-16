@@ -49,3 +49,10 @@ def app
   Reeder::Application
 end
 
+def fixture_path
+  File.expand_path("../fixtures", __FILE__)
+end
+
+def fixture(file)
+  File.read(File.join(fixture_path, file))
+end
