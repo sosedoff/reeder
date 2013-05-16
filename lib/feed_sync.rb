@@ -9,7 +9,13 @@ class FeedSync
 
   def run
     entries.each do |e|
-      # TODO
+      @feed.posts.create(
+        title:        e.title,
+        author:       e.author,
+        url:          e.url,
+        published_at: e.published,
+        content:      e.content || e.summary
+      )
     end
   end
 
