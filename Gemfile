@@ -12,6 +12,8 @@ gem 'rake'
 gem 'loofah',    '~> 1.2'
 gem 'feedzirra', github: 'pauldix/feedzirra'
 gem 'json'
+gem 'redis'
+gem 'sidekiq'
 
 group :development do
   gem 'shotgun'

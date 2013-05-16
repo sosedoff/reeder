@@ -25,6 +25,9 @@ GEM
     arel (3.0.2)
     backports (3.3.0)
     builder (3.0.4)
+    celluloid (0.13.0)
+      timers (>= 1.0.0)
+    connection_pool (1.0.0)
     curb (0.8.3)
     daemons (1.1.9)
     database_cleaner (1.0.1)
@@ -49,6 +52,9 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.0.4)
+    redis (3.0.4)
+    redis-namespace (1.2.1)
+      redis (~> 3.0.0)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -61,6 +67,12 @@ GEM
       nokogiri (~> 1.5.2)
     shotgun (0.9)
       rack (>= 1.0)
+    sidekiq (2.11.2)
+      celluloid (>= 0.13.0)
+      connection_pool (>= 1.0.0)
+      multi_json
+      redis (>= 3.0)
+      redis-namespace
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -83,6 +95,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.4.1)
+    timers (1.1.0)
     tzinfo (0.3.37)
 
 PLATFORMS
@@ -100,8 +113,10 @@ DEPENDENCIES
   rack-revision
   rack-test
   rake
+  redis
   rspec
   shotgun
+  sidekiq
   simplecov
   sinatra
   sinatra-activerecord
