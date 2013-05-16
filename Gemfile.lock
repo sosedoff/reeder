@@ -102,6 +102,7 @@ GEM
     tilt (1.4.1)
     timers (1.1.0)
     tzinfo (0.3.37)
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -128,3 +129,4 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-assetpack
   thin
+  will_paginate

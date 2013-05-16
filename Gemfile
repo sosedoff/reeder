@@ -15,6 +15,7 @@ gem 'json'
 gem 'redis'
 gem 'sidekiq'
 gem 'foreman'
+gem 'will_paginate'
 
 group :development do
   gem 'shotgun'
