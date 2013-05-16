@@ -7,4 +7,10 @@ class Feed < ActiveRecord::Base
   validates :url,   presence: true, uniqueness: true
 
   scope :recent, order('last_modified_at DESC')
+
+  after_create :sync_posts
+
+  def sync_posts
+    FeedWorker.perform_async(self.id)
+  end
 end

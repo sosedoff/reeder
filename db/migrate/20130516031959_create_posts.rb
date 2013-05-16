@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :feed_id, null: false
       t.string :title
       t.string :author
-      t.string :url
+      t.text :url
       t.text :content
       t.datetime :published_at
       t.datetime :read_at
