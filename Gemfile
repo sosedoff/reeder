@@ -14,6 +14,7 @@ gem 'feedzirra', github: 'pauldix/feedzirra'
 gem 'json'
 gem 'redis'
 gem 'sidekiq'
+gem 'foreman'
 
 group :development do
   gem 'shotgun'
