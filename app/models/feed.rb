@@ -8,9 +8,13 @@ class Feed < ActiveRecord::Base
 
   scope :recent, order('last_modified_at DESC')
 
-  after_create :sync_posts
+  after_commit :sync_posts, on: :create
 
   def sync_posts
     FeedWorker.perform_async(self.id)
+  end
+
+  def self.import(url)
+    FeedImport.new(url).run
   end
 end

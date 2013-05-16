@@ -5,7 +5,6 @@ class Post < ActiveRecord::Base
 
   validates :feed,         presence: true
   validates :title,        presence: true
-  validates :author,       presence: true
   validates :url,          presence: true, uniqueness: {scope: :feed_id}
   validates :content,      presence: true
   validates :published_at, presence: true
