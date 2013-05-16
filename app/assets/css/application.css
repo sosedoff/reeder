@@ -68,7 +68,7 @@ a:active, a:focus { outline: none; }
 a:link, a:visited, a:hover { text-decoration: none; }
 a img { border: 0; }
 
-p { font-size: 12px; line-height: 18px; }
+p { font-size: 13px; line-height: 18px; }
 
 input, input::-moz-focus-inner, button, button::-moz-focus-inner { border:0; }
 
@@ -258,16 +258,20 @@ header a {
 ============================================================*/
 .side { 
 	position: absolute;
-	top: 110px; left: 25px;
-	bottom: 0; right: 200px;
+	top: 110px; 
+	left: 25px;
+	bottom: 0; 
+	right: 200px;
 	width: 200px;
 	padding: 0;
 	overflow: scroll;
 }
 .side.fixed { 
 	position: fixed;
-	top: 70px; left: 25px;
-	bottom: 0; right: 200px;
+	top: 70px; 
+	left: 25px;
+	bottom: 0; 
+	right: 200px;
 }
 
 .side a {
@@ -277,11 +281,18 @@ header a {
 	color: rgba(68, 66, 62, 0.6);
 }
 .side a i {
-	width: 15px; height: 15px;
+	width: 15px; 
+	height: 15px;
 	float: left;
-	margin: 1px 7px 0 0;
-	background: #ccc;
+	/*margin: 1px 0px 0 0;*/
+	margin-right: 4px;
 }
+
+.side a i img {
+	width: 15px;
+	height: 15px;
+}
+
 .side ul {
 	padding: 20px 0 0;
 }

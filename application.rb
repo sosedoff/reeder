@@ -49,7 +49,7 @@ module Reeder
 
     get '/' do
       @feeds = Feed.recent
-      @posts = Post.includes(:feed).recent.limit(100)
+      @posts = Post.includes(:feed).recent.limit(25)
 
       erb :index
     end
