@@ -14,5 +14,6 @@ class CreatePosts < ActiveRecord::Migration
 
     add_index :posts, :feed_id
     add_index :posts, :published_at
+    add_index :posts, [:feed_id, :url]
   end
 end
