@@ -14,7 +14,7 @@ class FeedSync
         author:       e.author,
         url:          e.url,
         published_at: e.published,
-        content:      e.content || e.summary
+        content:      entry_content(e)
       )
     end
   end
@@ -24,5 +24,14 @@ class FeedSync
   def entries
     result = Feedzirra::Feed.fetch_and_parse(@feed.url)
     result ? result.entries : []
+  end
+
+  def entry_content(entry)
+    case entry
+    when Feedzirra::Parser::ITunesRSSItem
+      entry.summary
+    else
+      entry.content || entry.summary
+    end
   end
 end
