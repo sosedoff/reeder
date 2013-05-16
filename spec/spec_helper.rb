@@ -48,5 +48,5 @@ def fixture(file)
 end
 
 def app
-  Sinatra::Application
+  Reeder::Application
 end

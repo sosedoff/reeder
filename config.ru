@@ -14,4 +14,4 @@ use Rack::Revision
 use Rack::Runtime
 
 # Run main sinatra application
-run Sinatra::Application
+run Reeder::Application
