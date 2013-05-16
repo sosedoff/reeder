@@ -6,7 +6,10 @@ require 'yaml'
 require 'active_record'
 require 'loofah'
 require 'feedzirra'
+require 'sidekiq'
+
 require 'config/initializers/active_record'
+require 'config/initializers/sidekiq'
 
 autoload :Feed,       'app/models/feed'
 autoload :Post,       'app/models/post'
