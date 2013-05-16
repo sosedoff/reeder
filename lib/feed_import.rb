@@ -1,26 +1,25 @@
 class FeedImport
-  def initialize(feed)
-    unless feed.kind_of?(Feed)
-      raise ArgumentError, 'Feed instance required'
-    end
-
-    @feed = feed
+  def initialize(url)
+    @url = url
   end
 
   def run
-    if source
+    feed = get_feed_details
+
+    if feed
       Feed.create(
-        title:            source.title,
-        url:              source.feed_url,
-        site_url:         source.url || source.feed_url,
-        last_modified_at: source.last_modified
+        title:            feed.title,
+        url:              feed.feed_url,
+        site_url:         feed.url || feed.feed_url,
+        last_modified_at: feed.last_modified
       )
     end
   end
 
   private
 
-  def source
-    @source ||= Feedzirra::Feed.fetch_and_parse(@feed.url)
+  def get_feed_details
+    result = Feedzirra::Feed.fetch_and_parse(@url)
+    result.class.name =~ /Feedzirra/ ? result : nil
   end
 end

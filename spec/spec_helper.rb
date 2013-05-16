@@ -10,6 +10,16 @@ require 'database_cleaner'
 
 require './application'
 
+module ApiHelper
+  def json_response
+    JSON.parse(last_response.body)
+  end
+
+  def json_error
+    json_response['error']
+  end
+end
+
 Fabrication.configure do |config|
   config.fabricator_path = 'spec/fabricators'
   config.path_prefix     = '.'
@@ -18,6 +28,7 @@ end
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.include ApiHelper
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :deletion
@@ -36,3 +47,4 @@ end
 def app
   Reeder::Application
 end
+

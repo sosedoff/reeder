@@ -8,12 +8,32 @@ class Reeder::Application
   end
 
   post '/feeds' do
+    if params[:feed].nil?
+      json_error("Feed attributes required")
+    end
+
     feed = Feed.new(params[:feed])
 
     if feed.save
       json_response(feed)
     else
       json_error(feed.errors.full_messages.first, 422)
+    end
+  end
+
+  post '/feeds/import' do
+    url = params[:url].to_s
+
+    if url.empty?
+      json_error("Feed URL required")
+    end
+
+    feed = FeedImport.new(url).run
+
+    if feed
+      json_response(feed)
+    else
+      json_error("Invalid feed URL")
     end
   end
 
