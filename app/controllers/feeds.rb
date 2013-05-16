@@ -28,6 +28,10 @@ class Reeder::Application
       json_error("Feed URL required")
     end
 
+    if Feed.find_by_url(url)
+      json_error("Feed already exists")
+    end
+
     feed = FeedImport.new(url).run
 
     if feed
