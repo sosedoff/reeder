@@ -45,18 +45,11 @@ module Reeder
       erb :index
     end
 
-    get '/feeds' do
-      json_response(Feed.recent)
-    end
+    require 'app/controllers/feeds'
+    require 'app/controllers/posts'
 
-    get '/feeds/:id' do
-      feed = Feed.find_by_id(params[:id])
-
-      if feed.nil?
-        json_error("Feed does not exist", 404)
-      end
-
-      json_response(feed)
+    get '/*' do
+      json_error("Invalid route", 404)
     end
   end
 end

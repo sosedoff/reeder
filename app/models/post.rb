@@ -9,4 +9,6 @@ class Post < ActiveRecord::Base
   validates :url,          presence: true
   validates :content,      presence: true
   validates :published_at, presence: true
+
+  scope :recent, order('published_at DESC')
 end
