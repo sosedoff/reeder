@@ -96,4 +96,20 @@ describe Reeder::Application do
       expect(json_response).to be_a Hash
     end
   end
+
+  describe 'DELETE /feeds/:id' do
+    it 'returns error if feed does not exist' do
+      delete '/feeds/12345'
+
+      expect(last_response.status).to eq 404
+      expect(json_error).to eq 'Feed does not exist'
+    end
+
+    it 'deletes an existing feed' do
+      delete "/feeds/#{Fabricate(:feed).id}"
+
+      expect(last_response.status).to eq 200
+      expect(json_response['deleted']).to eq true
+    end
+  end
 end

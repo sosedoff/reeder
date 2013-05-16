@@ -37,6 +37,14 @@ class Reeder::Application
     end
   end
 
+  delete '/feeds/:id' do
+    if find_feed.destroy
+      json_response(deleted: true)
+    else
+      json_error("Unable to delete feed")
+    end
+  end
+
   private
 
   def find_feed
