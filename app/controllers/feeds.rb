@@ -41,6 +41,23 @@ class Reeder::Application
     end
   end
 
+  post '/feeds/import/opml' do
+    data = params[:opml].to_s
+
+    if data.empty?
+      json_error("OPML data required")
+    end
+
+    links = OpmlParser.new.parse_feeds(data)
+    feeds = []
+
+    links.each do |url|
+      feeds << Feed.import(url)
+    end
+
+    json_response(feeds)
+  end
+
   delete '/feeds/:id' do
     if find_feed.destroy
       json_response(deleted: true)

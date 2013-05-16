@@ -7,6 +7,9 @@ class FeedImport
     feed = get_feed_details
 
     if feed
+      record = Feed.find_by_url(feed.feed_url) 
+      return record if record.present?
+
       Feed.create(
         title:            feed.title,
         url:              feed.feed_url,

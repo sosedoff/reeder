@@ -97,6 +97,23 @@ describe Reeder::Application do
     end
   end
 
+  describe 'POST /feeds/import/opml' do
+    it 'requires opml data' do
+      post '/feeds/import/opml'
+
+      expect(last_response.status).to eq 400
+      expect(json_error).to eq 'OPML data required'
+    end
+
+    it 'returns a collection of imported feeds' do
+      post '/feeds/import/opml', opml: fixture('opml.xml')
+
+      expect(last_response.status).to eq 200
+      expect(json_response).to be_an Array
+      expect(json_response[0]['title']).to eq 'A Fresh Cup'
+    end
+  end
+
   describe 'DELETE /feeds/:id' do
     it 'returns error if feed does not exist' do
       delete '/feeds/12345'
