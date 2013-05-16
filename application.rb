@@ -3,6 +3,8 @@ require './environment'
 require 'sinatra'
 require 'sinatra/assetpack'
 require 'sinatra/activerecord'
+require 'will_paginate'
+require 'will_paginate/active_record'
 
 module Reeder
   class Application < Sinatra::Application

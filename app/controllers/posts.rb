@@ -1,6 +1,7 @@
 class Reeder::Application
   get '/posts' do
-    json_response(Post.recent.limit(posts_per_page))
+    posts = Post.recent.paginate(page: params[:page], per_page: posts_per_page)
+    json_response(posts)
   end
 
   get '/posts/:id' do
