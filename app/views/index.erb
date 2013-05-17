@@ -1,1 +1,69 @@
-<h1><img src="/images/icon.png" /> Reeder</h1>
+<div id="wrapper">
+  <div class="inner">
+    <header>
+      <div class="inner">
+        <a href="#">eeder</a>
+      </div>
+    </header>
+
+    <div class="side">
+      <ul>
+        <li class="all active">
+          <a href="#">Subscriptions <b>(<%= @feeds.size %>)</b></a>
+          <ul>
+            <% @feeds.each do |feed| %>
+              <li>
+                <a href="#">
+                  <i><img src="<%= feed.site_url %>/favicon.ico"></i> <%= trim(feed.title) %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+       
+      </ul>
+    </div>
+    <!-- side END -->
+    <main role="main" id="main" class="">
+      <div class="controls">
+        <a href="#" class="logo"></a>
+        <div class="addMore">
+          <input type="text" class="input" />
+          <span class="add">+</span>
+          <span class="add" style="display: none;">Add</span>
+
+        </div>
+        <label>Mark as read</label>
+        <select>
+          <option>all the things</option>
+        </select>
+        <label>Sort by</label>
+        <select>
+          <option>date</option>
+        </select>
+        <ul class="options">
+          <li><span class="full active">Full</span></li>
+          <li><span class="condensed">Condensed</span></li>
+          <li>|</li>
+          <li><span>Settings</span></li>
+        </ul>
+      </div>
+
+      <% @posts.each do |post| %>
+        <section>
+          <span class="meta">
+            <span class="source"><a href="#"><%= post.feed.title %></a></span>
+            <span class="author">by <a href="#"><%= post.author %></a></span>
+          </span>
+          <div class="title">
+            <span class="date"><%= post.published_at.strftime("%B %d, %Y") %></span>
+            <h1><a href="#" target="_blank"><%= post.title %></a></h1>
+          </div>
+          <div class="content">
+            <%= post.content %>
+          </div>
+        </section>
+      <% end %>
+    </main>
+  </div>
+</div>
