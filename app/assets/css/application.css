@@ -80,23 +80,23 @@ strong { font-weight: bold; }
 .button,
 a.button,
 .side a.button {
-	display: block;
-	height: 30px; line-height: 30px;
-	width: 100%;
-	text-align: center;
-	font-style: 13px;
-	color: #fff;
-	font-weight: bold;
-	text-shadow: 0 0 1px rgba(49, 158, 191, 1);
-	background: rgba(49, 158, 191, 0.4);
+  display: block;
+  height: 30px; line-height: 30px;
+  width: 100%;
+  text-align: center;
+  font-style: 13px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 1px rgba(49, 158, 191, 1);
+  background: rgba(49, 158, 191, 0.4);
 }
 
 /*============================================================
  Base Layout 
 ============================================================*/
 body {
-	color: rgba(68, 66, 62, 0.7);
-	font-family: Helvetica;
+  color: rgba(68, 66, 62, 0.7);
+  font-family: Helvetica;
 }
 
 h1 { font-size: 18px; line-height: 22px; }
@@ -106,220 +106,220 @@ h5 { font-size: 12px; line-height: 22px; }
  Header 
 ============================================================*/
 header { 
-	width: 100%;
-	height: 40px; line-height: 40px;
-	color: #fff;
-	background: rgba(49, 158, 191, 0.8); 
+  width: 100%;
+  height: 40px; line-height: 40px;
+  color: #fff;
+  background: rgba(49, 158, 191, 0.8); 
 }
 header .inner { padding: 0 20px; }
 header a { 
-	color: #fff; 	
-	background: left 0px no-repeat url('/images/logo.png'); 
-	padding-left: 15px;
+  color: #fff;  
+  background: left 0px no-repeat url('/images/logo.png'); 
+  padding-left: 15px;
 }
 
 .controls {
-	position: absolute;
-	top: 40px; right: 0; left: 0;
-	min-width: 805px;
-	height: 30px;
-	padding: 15px 20px;
-	background: #fff;
-	border-bottom: solid 1px rgba(172, 175, 156, 0.15);
-	z-index: 100;
+  position: absolute;
+  top: 40px; right: 0; left: 0;
+  min-width: 805px;
+  height: 30px;
+  padding: 15px 20px;
+  background: #fff;
+  border-bottom: solid 1px rgba(172, 175, 156, 0.15);
+  z-index: 100;
 }
 .controls label {
-	line-height: 30px;
-	float: left;
-	font-size: 12px;
-	font-weight: bold;
-	margin: 0 10px 0 0;
+  line-height: 30px;
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 10px 0 0;
 }
 .controls select { 
-	float: left; 
-	min-width: 100px;
-	margin: 5px 30px 0 0;
+  float: left; 
+  min-width: 100px;
+  margin: 5px 30px 0 0;
 }
 /*.controls select {
-	position: relative;
-	display: block;
-	float: left;
-	border: none;
-	min-width: 100px;
-	height: 30px; line-height: 30px;
-	padding: 0 20px 0 10px;
-	margin: 0 30px 0 0;
-	font-size: 12px;
-			    appearance: none;
-		 -moz-appearance: none;
-	-webkit-appearance: none;
-	color: rgba(68, 66, 62, 0.9);
-	background: rgba(172, 175, 156, 0.15);
-	border-radius: 3px;
-	z-index: 10;
+  position: relative;
+  display: block;
+  float: left;
+  border: none;
+  min-width: 100px;
+  height: 30px; line-height: 30px;
+  padding: 0 20px 0 10px;
+  margin: 0 30px 0 0;
+  font-size: 12px;
+          appearance: none;
+     -moz-appearance: none;
+  -webkit-appearance: none;
+  color: rgba(68, 66, 62, 0.9);
+  background: rgba(172, 175, 156, 0.15);
+  border-radius: 3px;
+  z-index: 10;
 }
 .controls select:before {
-	position: absolute;
-	display: block;
-	top: 0; left: 0;
-	width: 12px; height: 12px;
-	background: red;
+  position: absolute;
+  display: block;
+  top: 0; left: 0;
+  width: 12px; height: 12px;
+  background: red;
 }*/
 
 .controls .options {
-	float: right;
-	background: transparent;
+  float: right;
+  background: transparent;
 }
 .controls ul  {
-	float: right;
+  float: right;
 }
 .controls ul li {
-	float: left;
-	font-size: 11px;
-	line-height: 30px;
-	margin: 0 0 0 5px;
+  float: left;
+  font-size: 11px;
+  line-height: 30px;
+  margin: 0 0 0 5px;
 }
 .controls ul li span {
-	display: block;
-	padding: 0 15px;
-	cursor: pointer;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
 }
 .controls ul li span.active {
-	background: rgba(172, 175, 156, 0.15);
-	color: #000;
+  background: rgba(172, 175, 156, 0.15);
+  color: #000;
 }
 
 .controls.fixed {
-	position: fixed;
-	top: 0px; right: 0; left: 0;
-	height: 30px;
-	padding: 15px 20px;
-	background: #fff;
-	border-bottom: solid 1px rgba(172, 175, 156, 0.15);
-	z-index: 100;
+  position: fixed;
+  top: 0px; right: 0; left: 0;
+  height: 30px;
+  padding: 15px 20px;
+  background: #fff;
+  border-bottom: solid 1px rgba(172, 175, 156, 0.15);
+  z-index: 100;
 }
 .controls .logo {
-	display: none;
-	opacity: 0;
-	float: left;
-	width: 30px; height: 30px;
-	line-height: 30px;
-	background: left 6px no-repeat url('/images/logo-blue.png');
+  display: none;
+  opacity: 0;
+  float: left;
+  width: 30px; height: 30px;
+  line-height: 30px;
+  background: left 6px no-repeat url('/images/logo-blue.png');
 }
 
-.controls.fixed .logo { display: block;	opacity: 1; }
+.controls.fixed .logo { display: block; opacity: 1; }
 
 .controls .addMore {
-	float: left;
-	width: 135px;
-	padding: 0 30px 0 0;
-	margin: 0 60px 0 0;
+  float: left;
+  width: 135px;
+  padding: 0 30px 0 0;
+  margin: 0 60px 0 0;
 }
-.controls.fixed .addMore { padding: 0;	width: 135px; }
+.controls.fixed .addMore { padding: 0;  width: 135px; }
 
 .controls .addMore .input {
-	display: none;
-	width: 85px;
-	height: 18px; line-height: 18px;
-	padding: 5px;
-	border: solid 1px rgba(172, 175, 156, 0.15);
-	background: rgba(172, 175, 156, 0.15);
-	border-radius: 3px;
+  display: none;
+  width: 85px;
+  height: 18px; line-height: 18px;
+  padding: 5px;
+  border: solid 1px rgba(172, 175, 156, 0.15);
+  background: rgba(172, 175, 156, 0.15);
+  border-radius: 3px;
 }
 
 .controls .add {
-	display: block;
-	width: 30px; width: 30px;
-	line-height: 30px;
-	font-size: 25px;
-	font-weight: bold;
-	color: #fff;
-	background: #ccc;
-	text-align: center;
-	cursor: pointer;
-	border-radius: 3px;
+  display: block;
+  width: 30px; width: 30px;
+  line-height: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  background: #ccc;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 .controls .addMore.expanded .input {
-	display: block;
-	float: left;
-	background: #f1f1f1;
+  display: block;
+  float: left;
+  background: #f1f1f1;
 }
 .controls .addMore.expanded .add {
-	float: right;
-	font-size: 11px;
-	font-weight: normal;
-	background: #c44d4d;
-	opacity: 0.8;
+  float: right;
+  font-size: 11px;
+  font-weight: normal;
+  background: #c44d4d;
+  opacity: 0.8;
 }
  
 /*============================================================
  Sidebar 
 ============================================================*/
 .side { 
-	position: absolute;
-	top: 110px; 
-	left: 25px;
-	bottom: 0; 
-	right: 200px;
-	width: 200px;
-	padding: 0;
-	overflow: scroll;
+  position: absolute;
+  top: 110px; 
+  left: 25px;
+  bottom: 0; 
+  right: 200px;
+  width: 200px;
+  padding: 0;
+  overflow: scroll;
 }
 .side.fixed { 
-	position: fixed;
-	top: 70px; 
-	left: 25px;
-	bottom: 0; 
-	right: 200px;
+  position: fixed;
+  top: 70px; 
+  left: 25px;
+  bottom: 0; 
+  right: 200px;
 }
 
 .side a {
-	display: block;
-	font-size: 13px;
-	line-height: 18px;
-	color: rgba(68, 66, 62, 0.6);
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(68, 66, 62, 0.6);
 }
 .side a i {
-	width: 15px; 
-	height: 15px;
-	float: left;
-	/*margin: 1px 0px 0 0;*/
-	margin-right: 4px;
+  width: 15px; 
+  height: 15px;
+  float: left;
+  /*margin: 1px 0px 0 0;*/
+  margin-right: 4px;
 }
 
 .side a i img {
-	width: 15px;
-	height: 15px;
+  width: 15px;
+  height: 15px;
 }
 
 .side ul {
-	padding: 20px 0 0;
+  padding: 20px 0 0;
 }
 .side ul li {}
 .side ul li a {
-	padding: 2px 0;
-	margin: 0 0 5px;
-	font-weight: bold;
-	color: rgba(196, 77, 77, 0.9);
+  padding: 2px 0;
+  margin: 0 0 5px;
+  font-weight: bold;
+  color: rgba(196, 77, 77, 0.9);
 }
 
 .side ul li.all { position: relative; }
 .side ul li.all:before { 
-	content: '▶'; 
-	position: absolute;
-	top: 4px;
-	left: 0;
-	font-size: 12px;
-	color: rgba(196, 77, 77, 0.9);
+  content: '▶'; 
+  position: absolute;
+  top: 4px;
+  left: 0;
+  font-size: 12px;
+  color: rgba(196, 77, 77, 0.9);
 }
 .side ul li.all.active:before { content: '▼'; top: 5px; font-size: 12px; }
 
 .side ul li.all a {
-	padding-left: 20px;
+  padding-left: 20px;
 }
 .side ul li.all ul li a {
-	padding-left: 10px;
+  padding-left: 10px;
 }
 .side ul li.all a b { font-size: 11px; color: #ccc; font-weight: normal; }
 
@@ -328,18 +328,18 @@ header a {
 .side ul li.active ul { display: block; }
 
 .side ul li ul li a {
-	margin: 0;
-	padding: 2px 15px;
-	font-weight: normal;
-	/*color: rgba(68, 66, 62, 0.6);*/
-	color: #444;
+  margin: 0;
+  padding: 2px 15px;
+  font-weight: normal;
+  /*color: rgba(68, 66, 62, 0.6);*/
+  color: #444;
 }
 .side ul li ul li a:hover { 
-	/*
-	background-color: rgba(172, 175, 156, 0.05); 
-	*/
-	background: #eee;
-	color: #000;
+  /*
+  background-color: rgba(172, 175, 156, 0.05); 
+  */
+  background: #eee;
+  color: #000;
 }
 .side ul li ul li a.active { background-color: rgba(172, 175, 156, 0.1); }
 
@@ -348,104 +348,115 @@ header a {
  Body content 
 ============================================================*/
 main {
-	display: block;
-	min-width: 800px;
-/*	position: fixed;*/
-/*	top: 40px; left: 240px;*/
-	bottom: 0; right: 0;
-	padding: 80px 25px 0 240px;
+  display: block;
+  min-width: 800px;
+/*  position: fixed;*/
+/*  top: 40px; left: 240px;*/
+  bottom: 0; right: 0;
+  padding: 80px 25px 0 240px;
 
-/*	overflow: scroll;*/
+/*  overflow: scroll;*/
 }
 section {
-	position: relative;
-	max-width: 800px;
-	margin: 0 0 35px;
-	padding: 0 0 0 150px;
-	border-bottom: solid 1px rgba(172, 175, 156, 0.15);
+  position: relative;
+  max-width: 800px;
+  margin: 0 0 35px;
+  padding: 0 0 0 150px;
+  border-bottom: solid 1px rgba(172, 175, 156, 0.15);
 }
 section .meta {
-	position: absolute;
-	top: 5px; left: 0px;
-	font-size: 11px;
+  position: absolute;
+  top: 5px; left: 0px;
+  font-size: 11px;
 }
 section .meta span {
-	display: block;
-	line-height: 14px;
-	width: 120px;
-	padding: 5px 0;
-	margin: 0 0 3px;
-	text-align: center;
+  display: block;
+  line-height: 14px;
+  width: 120px;
+  padding: 5px 0;
+  margin: 0 0 3px;
+  text-align: center;
 }
 section .meta .source {
-	width: 110px;
-	padding: 5px;
-	background: #f1f2f3;
-	font-weight: bold;
-	color: #000;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+  width: 110px;
+  padding: 5px;
+  background: #f1f2f3;
+  font-weight: bold;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 section .meta .source a {
-	color: #000;
+  color: #000;
 } 
 section .meta .author {
-	text-align: left;
-	color: rgba(68, 66, 62, 1);
-	opacity: 0.7;
+  text-align: left;
+  color: rgba(68, 66, 62, 1);
+  opacity: 0.7;
 }
 section .meta .author a {
-	color: rgba(68, 66, 62, 1);
-	font-weight: bold;
+  color: rgba(68, 66, 62, 1);
+  font-weight: bold;
 }
 
 section .title {
-	position: relative;
-	margin: 0 0 15px;	
+  position: relative;
+  margin: 0 0 15px; 
 }
 section .title .date {
-	position: absolute;
-	top: 5px; right: 0;
-	text-align: right;
-	font-size: 11px;
-	font-weight: bold;
-	color: rgba(68, 66, 62, 0.4);
+  position: absolute;
+  top: 5px; right: 0;
+  text-align: right;
+  font-size: 11px;
+  font-weight: bold;
+  color: rgba(68, 66, 62, 0.4);
 }
 section .title h1 {
-	color: rgba(68, 66, 62, 1);
-	padding: 0 100px 0 0;
+  color: rgba(68, 66, 62, 1);
+  padding: 0 100px 0 0;
 }
-section .title h1 a 			{ color: rgba(68, 66, 62, 1); }
+section .title h1 a       { color: rgba(68, 66, 62, 1); }
 section .title h1 a:hover { color: rgba(68, 66, 62, 0.8); }
 
 section .title h5 {
-	color: rgba(68, 66, 62, 0.6);
-	font-weight: normal;
+  color: rgba(68, 66, 62, 0.6);
+  font-weight: normal;
 }
 section .title h5 i { font-style: normal; }
 
 section .title h5 a {
-	font-weight: bold;
-	color: rgba(68, 66, 62, 0.6);
+  font-weight: bold;
+  color: rgba(68, 66, 62, 0.6);
 }
 section .title h5 a:first-child {
-	color: rgba(196, 77, 77, 0.6);
+  color: rgba(196, 77, 77, 0.6);
 }
 section p {
-	margin: 0 0 20px;
-	color: rgba(68, 66, 62, 1);
+  margin: 0 0 20px;
+  color: rgba(68, 66, 62, 1);
+}
+
+/* Post content */
+section div.content {
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(68, 66, 62, 1);
+}
+
+section div.content a {
+  text-decoration: underline;
 }
 
 /*============================================================
  Body content condensed
 ============================================================*/
 main.condensed section {
-	margin: 0;
-	padding: 5px 0 5px 150px;
-	max-width: 100%;
+  margin: 0;
+  padding: 5px 0 5px 150px;
+  max-width: 100%;
 }
 main.condensed section .meta {
 
@@ -454,38 +465,38 @@ main.condensed section .meta .author { display: none; }
 
 main.condensed section .title { margin: 0; }
 main.condensed section h1 { 
-	float: left;
-	max-width: 600px;
-	padding: 0;
-	font-size: 13px; font-weight: 400; 
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  float: left;
+  max-width: 600px;
+  padding: 0;
+  font-size: 13px; font-weight: 400; 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 main.condensed section h5 { 
-	float: right; padding-right: 100px; 
-	font-size: 11px; 
+  float: right; padding-right: 100px; 
+  font-size: 11px; 
 }
 main.condensed section h5 i { display: none; }
 main.condensed section p { display: none; }
 
 main.condensed section.expanded {
-	margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 main.condensed section.expanded h1 {
-	float: none;
-	padding: 0px;
-	font-size: 18px;
-	line-height: 22px;
-	font-weight: bold;
+  float: none;
+  padding: 0px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
 }
 
 main.condensed section.expanded .title {
-	position: relative;
-	margin: 0 0 15px;	
+  position: relative;
+  margin: 0 0 15px; 
 }
 main.condensed section.expanded p {
-	display: block;	
+  display: block; 
 }
 
 /*============================================================

@@ -7,23 +7,9 @@
     </header>
 
     <div class="side">
-      <ul>
-        <li class="all active">
-          <a href="#">Subscriptions <b>(<%= @feeds.size %>)</b></a>
-          <ul>
-            <% @feeds.each do |feed| %>
-              <li>
-                <a href="#">
-                  <i><img src="<%= feed.site_url %>/favicon.ico"></i> <%= trim(feed.title) %>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </li>
-       
-      </ul>
+      <%= render_partial 'partials/_sidebar', feeds: @feeds %>
     </div>
-    <!-- side END -->
+
     <main role="main" id="main" class="">
       <div class="controls">
         <a href="#" class="logo"></a>
@@ -49,21 +35,7 @@
         </ul>
       </div>
 
-      <% @posts.each do |post| %>
-        <section>
-          <span class="meta">
-            <span class="source"><a href="#"><%= post.feed.title %></a></span>
-            <span class="author">by <a href="#"><%= post.author %></a></span>
-          </span>
-          <div class="title">
-            <span class="date"><%= post.published_at.strftime("%B %d, %Y") %></span>
-            <h1><a href="#" target="_blank"><%= post.title %></a></h1>
-          </div>
-          <div class="content">
-            <%= post.content %>
-          </div>
-        </section>
-      <% end %>
+      <%= render_partial 'partials/_posts', posts: @posts %>
     </main>
   </div>
 </div>

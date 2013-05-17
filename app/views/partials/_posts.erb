@@ -1,0 +1,23 @@
+<% posts.each do |post| %>
+  <section data-post-id="<%= post.id %>">
+    <span class="meta">
+      <span class="source">
+        <a href="<%= post.feed.site_url || post.feed.url %>" target="_blank"><%= post.feed.title %></a>
+      </span>
+      <span class="author">
+        by <a href="#"><%= post.author || 'Unknown' %></a>
+      </span>
+    </span>
+    <div class="title">
+      <span class="date">
+        <%= post.published_at.strftime("%B %d, %Y at %I:%M %P") %>
+      </span>
+      <h1>
+        <a href="<%= post.url %>" target="_blank"><%= post.title %></a>
+      </h1>
+    </div>
+    <div class="content">
+      <%= post.content %>
+    </div>
+</section>
+<% end %>

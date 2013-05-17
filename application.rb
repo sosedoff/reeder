@@ -45,6 +45,10 @@ module Reeder
       def trim(str, length=20)
         str.size > length ? "#{str[0, length]}..." : str
       end
+
+      def render_partial(name, locals={})
+        erb(name.to_sym, layout: false, locals: locals)
+      end
     end
 
     get '/' do
