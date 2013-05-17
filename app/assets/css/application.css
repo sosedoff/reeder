@@ -478,7 +478,7 @@ main.condensed section h5 {
   font-size: 11px; 
 }
 main.condensed section h5 i { display: none; }
-main.condensed section p { display: none; }
+main.condensed section div.content { display: none; }
 
 main.condensed section.expanded {
   margin-bottom: 0px;
@@ -495,7 +495,7 @@ main.condensed section.expanded .title {
   position: relative;
   margin: 0 0 15px; 
 }
-main.condensed section.expanded p {
+main.condensed section.expanded div.content {
   display: block; 
 }
 

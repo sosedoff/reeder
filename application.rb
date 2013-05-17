@@ -60,17 +60,18 @@ module Reeder
       @feeds = Feed.recent
       @posts = Post.includes(:feed).recent.limit(25)
 
-      if params[:f]
-        @posts = @posts.where('feed_id = ?', params[:f])
-      end
-
       erb :index
+    end
+
+    get '/feeds/:id' do
+      @posts = Feed.find(params[:id]).posts.recent.limit(50)
+      erb :feed
     end
 
     require 'app/controllers/feeds'
     require 'app/controllers/posts'
 
-    get '/*' do
+    get '/api/*' do
       json_error("Invalid route", 404)
     end
   end

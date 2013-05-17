@@ -7,6 +7,18 @@
     <%= js :app %>
   </head>
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <div class="inner">
+        <%= render_partial 'partials/_header' %>
+
+        <div class="side">
+          <%= render_partial 'partials/_sidebar', feeds: Feed.all %>
+        </div>
+
+        <main role="main" id="main" class="">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   </body>
 </html>

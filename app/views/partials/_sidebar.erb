@@ -4,7 +4,7 @@
     <ul>
       <% feeds.each do |feed| %>
         <li>
-          <a href="/?f=<%= feed.id %>"><%= trim(feed.title) %></a>
+          <a href="/feeds/<%= feed.id %>"><%= trim(feed.title) %></a>
         </li>
       <% end %>
     </ul>

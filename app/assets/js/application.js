@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  $('.side ul li').click(function() {
-    $(this).toggleClass('active');
-  });
-
   $('.add').click(function() {
     $('.addMore').toggleClass('expanded');
     $('.add').toggle();
