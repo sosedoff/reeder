@@ -23,7 +23,7 @@ class FeedSync
 
   def entries
     result = Feedzirra::Feed.fetch_and_parse(@feed.url)
-    result ? result.entries : []
+    result.class.name =~ /Feedzirra/ ? result.entries : []
   end
 
   def entry_content(entry)
