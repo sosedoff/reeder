@@ -4,7 +4,7 @@
     <ul>
       <% feeds.each do |feed| %>
         <li>
-          <a href="#"><i><img src="<%= feed.site_url %>/favicon.ico"></i> <%= trim(feed.title) %></a>
+          <a href="/?f=<%= feed.id %>"><%= trim(feed.title) %></a>
         </li>
       <% end %>
     </ul>

@@ -55,6 +55,10 @@ module Reeder
       @feeds = Feed.recent
       @posts = Post.includes(:feed).recent.limit(25)
 
+      if params[:f]
+        @posts = @posts.where('feed_id = ?', params[:f])
+      end
+
       erb :index
     end
 

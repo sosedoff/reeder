@@ -436,14 +436,14 @@ section .title h5 a:first-child {
 }
 section p {
   margin: 0 0 20px;
-  color: rgba(68, 66, 62, 1);
+  color: #000;
 }
 
 /* Post content */
 section div.content {
   font-size: 13px;
   line-height: 18px;
-  color: rgba(68, 66, 62, 1);
+  color: #000;
 }
 
 section div.content a {
