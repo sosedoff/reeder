@@ -1,4 +1,6 @@
 class Feed < ActiveRecord::Base
+  STATUSES = %w(ok error)
+
   attr_accessible :title, :description, :url, :site_url, :last_modified_at
 
   has_many :posts, dependent: :destroy

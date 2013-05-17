@@ -14,7 +14,8 @@ class FeedImport
         title:            feed.title,
         url:              feed.feed_url,
         site_url:         feed.url || feed.feed_url,
-        last_modified_at: feed.last_modified
+        last_modified_at: feed.last_modified,
+        status:           'ok'
       )
     end
   end
