@@ -6,6 +6,7 @@ class CreateFeeds < ActiveRecord::Migration
       t.string :url
       t.string :site_url
       t.datetime :last_modified_at
+      t.string :status, limit: 8
       t.timestamps
     end
   end
