@@ -28,6 +28,11 @@ module Reeder
 
       js :app, [
         '/js/jquery.js',
+        '/js/underscore.js',
+        '/js/backbone.js',
+        '/js/feed.js',
+        '/js/post.js',
+        '/js/reader.js',
         '/js/application.js'
       ]
     end

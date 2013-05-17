@@ -23,7 +23,7 @@ $(document).ready(function() {
 
   $('main section').click(function() {
     $(this).toggleClass('expanded');
-  }); 
+  });
 });
 
 $(document).scroll(function() {
