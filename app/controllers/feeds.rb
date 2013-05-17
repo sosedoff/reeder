@@ -1,13 +1,13 @@
 class Reeder::Application
-  get '/feeds' do
+  get '/api/feeds' do
     json_response(Feed.recent)
   end
 
-  get '/feeds/:id' do
+  get '/api/feeds/:id' do
     json_response(find_feed)
   end
 
-  post '/feeds' do
+  post '/api/feeds' do
     if params[:feed].nil?
       json_error("Feed attributes required")
     end
@@ -21,7 +21,7 @@ class Reeder::Application
     end
   end
 
-  post '/feeds/import' do
+  post '/api/feeds/import' do
     url = params[:url].to_s
 
     if url.empty?
@@ -41,7 +41,7 @@ class Reeder::Application
     end
   end
 
-  post '/feeds/import/opml' do
+  post '/api/feeds/import/opml' do
     data = params[:opml].to_s
 
     if data.empty?
@@ -57,7 +57,7 @@ class Reeder::Application
     json_response(feeds)
   end
 
-  delete '/feeds/:id' do
+  delete '/api/feeds/:id' do
     if find_feed.destroy
       json_response(deleted: true)
     else

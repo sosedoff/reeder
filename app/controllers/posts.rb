@@ -1,14 +1,14 @@
 class Reeder::Application
-  get '/posts' do
+  get '/api/posts' do
     posts = Post.recent.paginate(page: params[:page], per_page: posts_per_page)
     json_response(posts)
   end
 
-  get '/posts/:id' do
+  get '/api/posts/:id' do
     json_response(find_post)
   end
 
-  post '/posts/:id/read' do
+  post '/api/posts/:id/read' do
     json_error("Not implemented", 501)
   end
 

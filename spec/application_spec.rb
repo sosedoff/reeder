@@ -8,10 +8,10 @@ describe Reeder::Application do
     end
   end
 
-  describe 'GET /feeds' do
+  describe 'GET /api/feeds' do
     context 'when no feeds exist' do
       it 'returns an empty collection' do
-        get '/feeds'
+        get '/api/feeds'
 
         expect(last_response.status).to eq 200
         expect(json_response).to be_empty
@@ -22,7 +22,7 @@ describe Reeder::Application do
       before { Fabricate(:feed) }
 
       it 'returns a collection of feeds' do
-        get '/feeds'
+        get '/api/feeds'
 
         expect(last_response.status).to eq 200
         expect(json_response).not_to be_empty
@@ -31,9 +31,9 @@ describe Reeder::Application do
     end
   end
 
-  describe 'GET /feeds/:id' do
+  describe 'GET /api/feeds/:id' do
     it 'returns error if feed does not exist' do
-      get '/feeds/12345'
+      get '/api/feeds/12345'
 
       expect(last_response.status).to eq 404
       expect(json_error).to eq 'Feed does not exist'
@@ -43,7 +43,7 @@ describe Reeder::Application do
       let!(:feed) { Fabricate(:feed) }
 
       it 'returns feed details' do
-        get "/feeds/#{feed.id}"
+        get "/api/feeds/#{feed.id}"
 
         expect(last_response.status).to eq 200
         expect(json_response['id']).to eq feed.id
@@ -53,60 +53,60 @@ describe Reeder::Application do
 
   describe 'POST /feeds' do
     it 'returns error if feed attributes are missing' do
-      post '/feeds'
+      post '/api/feeds'
 
       expect(last_response.status).to eq 400
       expect(json_error).to eq 'Feed attributes required'
     end
 
     it 'returns feed validation errors' do
-      post '/feeds', feed: {title: "Foo"}
+      post '/api/feeds', feed: {title: "Foo"}
 
       expect(last_response.status).to eq 422
       expect(json_error).to eq "Url can't be blank"
     end
 
     it 'returns feed instance' do
-      post '/feeds', feed: {title: "Foo", url: 'http:/foo.com'}
+      post '/api/feeds', feed: {title: "Foo", url: 'http:/foo.com'}
 
       expect(last_response.status).to eq 200
       expect(json_response).to include 'id', 'title', 'url'
     end
   end
 
-  describe 'POST /feeds/import' do
+  describe 'POST /api/feeds/import' do
     it 'requires feed url parameter' do
-      post '/feeds/import'
+      post '/api/feeds/import'
 
       expect(last_response.status).to eq 400
       expect(json_error).to eq 'Feed URL required'
     end
 
     it 'returns error on invalid feed url' do
-      post '/feeds/import', url: 'http://foo.bar'
+      post '/api/feeds/import', url: 'http://foo.bar'
 
       expect(last_response.status).to eq 400
       expect(json_error).to eq 'Invalid feed URL'
     end
 
     it 'returns a new feed details' do
-      post '/feeds/import', url: 'https://news.ycombinator.com/rss'
+      post '/api/feeds/import', url: 'https://news.ycombinator.com/rss'
 
       expect(last_response.status).to eq 200
       expect(json_response).to be_a Hash
     end
   end
 
-  describe 'POST /feeds/import/opml' do
+  describe 'POST /api/feeds/import/opml' do
     it 'requires opml data' do
-      post '/feeds/import/opml'
+      post '/api/feeds/import/opml'
 
       expect(last_response.status).to eq 400
       expect(json_error).to eq 'OPML data required'
     end
 
     it 'returns a collection of imported feeds' do
-      post '/feeds/import/opml', opml: fixture('opml.xml')
+      post '/api/feeds/import/opml', opml: fixture('opml.xml')
 
       expect(last_response.status).to eq 200
       expect(json_response).to be_an Array
@@ -114,16 +114,16 @@ describe Reeder::Application do
     end
   end
 
-  describe 'DELETE /feeds/:id' do
+  describe 'DELETE /api/feeds/:id' do
     it 'returns error if feed does not exist' do
-      delete '/feeds/12345'
+      delete '/api/feeds/12345'
 
       expect(last_response.status).to eq 404
       expect(json_error).to eq 'Feed does not exist'
     end
 
     it 'deletes an existing feed' do
-      delete "/feeds/#{Fabricate(:feed).id}"
+      delete "/api/feeds/#{Fabricate(:feed).id}"
 
       expect(last_response.status).to eq 200
       expect(json_response['deleted']).to eq true
