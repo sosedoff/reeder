@@ -16,6 +16,10 @@ class Feed < ActiveRecord::Base
     FeedWorker.perform_async(self.id)
   end
 
+  def read_all
+    posts.unread.update_all(read_at: Time.now)
+  end
+
   def self.import(url)
     FeedImport.new(url).run
   end

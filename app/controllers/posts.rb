@@ -9,7 +9,11 @@ class Reeder::Application
   end
 
   post '/api/posts/:id/read' do
-    json_error("Not implemented", 501)
+    json_response(read: find_post.read!.read?)
+  end
+
+  post '/api/posts/:id/bookmark' do
+    json_response(bookmarked: find_post.bookmark!.bookmarked)
   end
 
   private
