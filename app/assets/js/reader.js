@@ -1,3 +1,0 @@
-var Reader = new function() {
-  
-};
