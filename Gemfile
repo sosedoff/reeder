@@ -25,6 +25,6 @@ group :test do
   gem 'rspec'
   gem 'fabrication'
   gem 'database_cleaner'
-  gem 'simplecov'
+  gem 'simplecov', require: false
   gem 'rack-test'
 end

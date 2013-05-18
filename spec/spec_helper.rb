@@ -1,7 +1,14 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/spec/"
+
+  add_group "Models",      "app/models"
+  add_group "Controllers", "app/controllers"
+  add_group "Workers",     "app/workers"
+  add_group "Lib",         "lib"
+end
 
 require 'sinatra'
 require 'rack/test'
