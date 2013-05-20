@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'sinatra/activerecord/rake'
+require 'pry'
 require './application.rb'
 
 begin
