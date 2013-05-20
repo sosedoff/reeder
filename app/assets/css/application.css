@@ -444,10 +444,20 @@ section div.content {
   font-size: 13px;
   line-height: 18px;
   color: #000;
+  padding-bottom: 12px;
 }
 
 section div.content a {
   text-decoration: underline;
+}
+
+section div.content ul { 
+  margin-left: 20px;
+}
+
+section div.content ul li {
+  list-style: disc;
+  list-style-type: disc;
 }
 
 /*============================================================
