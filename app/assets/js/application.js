@@ -1,35 +1,6 @@
-$(document).ready(function() {
-  $('.add').click(function() {
-    $('.addMore').toggleClass('expanded');
-    $('.add').toggle();
-  }); 
-
-  $('.options li span').click(function() {
-    $('.options li span').removeClass('active');
-    $(this).addClass('active');
-  }); 
-
-  $('.options li span.full').click(function() {
-    $('main').removeClass('condensed');
-  }); 
-
-  $('.options li span.condensed').click(function() {
-    $('main').addClass('condensed');
-  }); 
-
-  $('main section').click(function() {
-    $(this).toggleClass('expanded');
-  });
-});
-
-$(document).scroll(function() {
-  var scrollTop = $(document).scrollTop();
-  
-  $('.controls').removeClass('fixed');
-  $('.side').removeClass('fixed');
-
-  if (scrollTop > 40) {
-    $('.controls').addClass('fixed');
-    $('.side').addClass('fixed');
-  }
-});
+angular.module('reeder', ['reeder.controllers', 'ngSanitize']).
+  config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/', {controller: 'IndexController'});
+    $routeProvider.when('/feeds/:feed_id', {templateUrl: '/partials/feed.html', controller: 'FeedController'});
+    $routeProvider.otherwise({redirectTo: '/'});
+  }]);

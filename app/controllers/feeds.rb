@@ -7,6 +7,11 @@ class Reeder::Application
     json_response(find_feed)
   end
 
+  get '/api/feeds/:id/posts' do
+    posts = find_feed.posts.recent.paginate(page: params[:page], per_page: posts_per_page)
+    json_response(posts)
+  end
+
   post '/api/feeds' do
     if params[:feed].nil?
       json_error("Feed attributes required")

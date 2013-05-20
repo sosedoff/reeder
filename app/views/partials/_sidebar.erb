@@ -1,12 +1,10 @@
 <ul>
   <li class="all active">
-    <a href="#">Subscriptions <b>(<%= feeds.size %>)</b></a>
+    <a ng-href="/">Subscriptions <b>({{ feeds_count }})</b></a>
     <ul>
-      <% feeds.each do |feed| %>
-        <li>
-          <a href="/feeds/<%= feed.id %>"><%= trim(feed.title) %></a>
-        </li>
-      <% end %>
+      <li ng-repeat="feed in feeds">
+        <a ng-href="/#/feeds/{{ feed.id }}">{{ feed.title }}</a>
+      </li>
     </ul>
   </li>
 </ul>

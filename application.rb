@@ -30,7 +30,10 @@ module Reeder
         '/js/jquery.js',
         '/js/angular.js',
         '/js/angular-resource.js',
-        '/js/application.js'
+        '/js/angular-sanitize.js',
+        '/js/styles.js',
+        '/js/application.js',
+        '/js/controllers.js'
       ]
     end
 
@@ -54,15 +57,7 @@ module Reeder
     end
 
     get '/' do
-      @feeds = Feed.recent
-      @posts = Post.includes(:feed).recent.limit(25)
-
       erb :index
-    end
-
-    get '/feeds/:id' do
-      @posts = Feed.find(params[:id]).posts.recent.limit(50)
-      erb :feed
     end
 
     require 'app/controllers/feeds'
@@ -70,10 +65,6 @@ module Reeder
 
     get '/api/*' do
       json_error("Invalid route", 404)
-    end
-
-    get '/*' do
-      redirect '/'
     end
   end
 end

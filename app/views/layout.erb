@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="reeder">
   <head>
     <meta charset="utf-8">
     <title>Reeder</title>
     <%= css :app, :media => 'screen' %>
-    <%= js :app %>
   </head>
-  <body>
+  <body ng-controller="IndexController">
     <div id="wrapper">
       <div class="inner">
         <%= render_partial 'partials/_header' %>
 
         <div class="side">
-          <%= render_partial 'partials/_sidebar', feeds: Feed.all %>
+          <%= render_partial 'partials/_sidebar' %>
         </div>
 
         <main role="main" id="main" class="">
-          <%= yield %>
+          <div ng-view></div>
         </main>
       </div>
     </div>
+
+    <%= js :app %>
   </body>
 </html>

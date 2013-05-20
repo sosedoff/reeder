@@ -1,0 +1,43 @@
+<div class="controls">
+  <a href="#" class="logo"></a>
+  <div class="addMore">
+    <input type="text" class="input" />
+    <span class="add">+</span>
+    <span class="add" style="display: none;">Add</span>
+
+  </div>
+  <label>Mark as read</label>
+  <select>
+    <option>all the things</option>
+  </select>
+  <label>Sort by</label>
+  <select>
+    <option>date</option>
+  </select>
+  <ul class="options">
+    <li><span class="full active">Full</span></li>
+    <li><span class="condensed">Condensed</span></li>
+    <li>|</li>
+    <li><span>Settings</span></li>
+  </ul>
+</div>
+
+<section ng-repeat="post in posts">
+  <span class="meta">
+    <span class="source">
+      <a href="#" target="_blank">{{ feed.title }}</a>
+    </span>
+    <span class="author">
+      by <a href="#">{{ post.author || 'Unknown' }}</a>
+    </span>
+  </span>
+  <div class="title">
+    <span class="date">
+      {{ post.published_at }}
+    </span>
+    <h1>
+      <a href="{{ post.url }}" target="_blank">{{ post.title }}</a>
+    </h1>
+  </div>
+  <div class="content" ng-bind-html-unsafe="post.content"></div>
+</section>
