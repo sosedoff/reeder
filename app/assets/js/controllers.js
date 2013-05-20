@@ -3,6 +3,10 @@ angular.module('reeder.controllers', []).
     $http.get('/api/feeds').success(function(data) {
       $scope.feeds       = data;
       $scope.feeds_count = data.length;
+
+      $http.get('/api/posts').success(function(resp) {
+        $scope.posts = resp;
+      });
     });
   }).
   controller('FeedController', function FeedController($scope, $http, $route, $routeParams) {
