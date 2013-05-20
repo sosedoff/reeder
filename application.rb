@@ -47,10 +47,6 @@ module Reeder
         halt(status, json_response(error: message, status: status))
       end
 
-      def trim(str, length=20)
-        str.size > length ? "#{str[0, length]}..." : str
-      end
-
       def render_partial(name, locals={})
         erb(name.to_sym, layout: false, locals: locals)
       end
@@ -62,13 +58,6 @@ module Reeder
 
     require 'app/controllers/feeds'
     require 'app/controllers/posts'
-
-    get '/api/*' do
-      json_error("Invalid route", 404)
-    end
-
-    get '/*' do
-      redirect '/'
-    end
+    require 'app/controllers/base'
   end
 end
