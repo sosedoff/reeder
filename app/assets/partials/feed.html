@@ -36,7 +36,7 @@
       {{ post.published_at }}
     </span>
     <h1>
-      <a href="{{ post.url }}" target="_blank">{{ post.title }}</a>
+      <a href="{{ post.url }}" target="_blank" ng-bind-html-unsafe="post.title"></a>
     </h1>
   </div>
   <div class="content" ng-bind-html-unsafe="post.content"></div>
