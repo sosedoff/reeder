@@ -447,6 +447,11 @@ section div.content {
   padding-bottom: 12px;
 }
 
+section div.content p {
+  margin: 0px;
+  line-height: 20px;
+}
+
 section div.content a {
   text-decoration: underline;
 }
@@ -458,6 +463,26 @@ section div.content ul {
 section div.content ul li {
   list-style: disc;
   list-style-type: disc;
+}
+
+section div.content pre {
+  margin: 12px 0px;
+}
+
+section div.content pre code {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+section div.content h3 {
+  display: block;
+  font-size: 14px;
+  margin: 8px 0px;
+}
+
+section div.content h4 {
+  display: block;
+  margin: 8px 0px;
 }
 
 /*============================================================
