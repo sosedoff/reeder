@@ -27,6 +27,8 @@ GEM
     builder (3.0.4)
     celluloid (0.14.0)
       timers (>= 1.0.0)
+    clockwork (0.5.1)
+      tzinfo (~> 0.3.35)
     coderay (1.0.9)
     connection_pool (1.0.0)
     curb (0.8.3)
@@ -116,6 +118,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 3.2)
+  clockwork
   database_cleaner
   fabrication
   feedzirra!

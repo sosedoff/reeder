@@ -16,6 +16,7 @@ gem 'redis'
 gem 'sidekiq'
 gem 'foreman'
 gem 'will_paginate'
+gem 'clockwork'
 
 group :development do
   gem 'shotgun'
