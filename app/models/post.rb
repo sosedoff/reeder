@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   attr_accessible :title, :author, :url, :content, :published_at
-  attr_accessible :read_at, :feed_id
+  attr_accessible :read_at, :bookmarked, :feed_id
 
   belongs_to :feed
 
