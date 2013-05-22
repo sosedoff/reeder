@@ -9,6 +9,13 @@ angular.module('reeder.controllers', []).
       });
     });
   }).
+
+  controller('FeedsController', function FeedsController($scope, $http) {
+    $http.get("/api/feeds").success(function(resp) {
+      $scope.feeds = resp;
+    });
+  }).
+
   controller('FeedController', function FeedController($scope, $http, $route, $routeParams) {
     var feed_id = $routeParams.feed_id;
 

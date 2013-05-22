@@ -6,6 +6,11 @@ angular.module('reeder', ['reeder.controllers', 'ngSanitize']).
       controller: 'IndexController'
     });
 
+    $routeProvider.when('/feeds', {
+      templateUrl: '/partials/feeds.html',
+      controller: 'FeedsController'
+    });
+
     $routeProvider.when('/feeds/:feed_id', {
       templateUrl: '/partials/feed.html', 
       controller: 'FeedController'
