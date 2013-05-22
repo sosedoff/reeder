@@ -1,6 +1,8 @@
 <div ng-repeat="feed in feeds">
   <div><strong>{{ feed.title }}</strong></div>
-  <div>{{ feed.url }}</div>
+  <div>{{ feed.description }}</div>
+  <div>Feed URL: {{ feed.url }}</div>
+  <div>Site URL: {{ feed.site_url }}</div>
   <div>Last updated at {{ feed.last_modified_at }}</div>
   <div>{{ feed.posts_count }} posts, {{ feed.unread_posts_count }} unread</div>
   <hr/>
