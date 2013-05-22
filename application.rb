@@ -23,7 +23,8 @@ module Reeder
       serve '/images', from: 'assets/images'
 
       css :app, [
-        '/css/application.css'
+        '/css/application.css',
+        '/css/font-awesome.css'
       ]
 
       js :app, [
