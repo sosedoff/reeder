@@ -92,6 +92,14 @@ a.button,
 }
 
 /*============================================================
+ Typography 
+============================================================*/
+@font-face {
+  font-family: "Gnuolane";
+  src: url('/fonts/gnuolane.woff');
+}
+
+/*============================================================
  Base Layout 
 ============================================================*/
 body {
@@ -99,8 +107,10 @@ body {
   font-family: Helvetica;
 }
 
-h1 { font-size: 18px; line-height: 22px; }
+h1 { font-size: 24px; line-height: 22px; }
 h5 { font-size: 12px; line-height: 22px; }
+
+#wrapper { overflow: hidden; }
 
 /*============================================================
  Header 
@@ -109,13 +119,17 @@ header {
   width: 100%;
   height: 40px; line-height: 40px;
   color: #fff;
-  background: rgba(49, 158, 191, 0.8); 
+/*  background: rgba(49, 158, 191, 0.8); */
+  background: #185059;
 }
 header .inner { padding: 0 20px; }
 header a { 
   color: #fff;  
-  background: left 0px no-repeat url('/images/logo.png'); 
-  padding-left: 15px;
+  background: left 3px no-repeat url('/images/logo.png'); 
+  padding-left: 17px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-family: "Gnuolane";  
 }
 
 .controls {
@@ -181,13 +195,22 @@ header a {
 }
 .controls ul li span {
   display: block;
-  padding: 0 15px;
+  padding: 7px 10px 0;
   cursor: pointer;
+  font-weight: normal;
+  border-radius: 2px;
+  color: #bbb;
+}
+.controls ul li span:hover {
+  background: rgba(172, 175, 156, 0.05);
+  color: #666;
 }
 .controls ul li span.active {
-  background: rgba(172, 175, 156, 0.15);
+  background: rgba(172, 175, 156, 0.2);
   color: #000;
 }
+
+.controls ul li span i { font-size: 17.5px; }
 
 .controls.fixed {
   position: fixed;
@@ -196,6 +219,7 @@ header a {
   padding: 15px 20px;
   background: #fff;
   border-bottom: solid 1px rgba(172, 175, 156, 0.15);
+  border-top: solid 3px #185059;
   z-index: 100;
 }
 .controls .logo {
@@ -213,7 +237,7 @@ header a {
   float: left;
   width: 135px;
   padding: 0 30px 0 0;
-  margin: 0 60px 0 0;
+  margin: 0 105px 0 0;
 }
 .controls.fixed .addMore { padding: 0;  width: 135px; }
 
@@ -229,16 +253,18 @@ header a {
 
 .controls .add {
   display: block;
-  width: 30px; width: 30px;
+  height: 29px; width: 30px;
+  padding: 1px 0 0;
   line-height: 30px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
-  background: #ccc;
+  background: rgba(172, 175, 156, 0.7);
   text-align: center;
   cursor: pointer;
   border-radius: 3px;
 }
+.controls .add:hover { background: #ed4732; }
 
 .controls .addMore.expanded .input {
   display: block;
@@ -261,8 +287,7 @@ header a {
   top: 110px; 
   left: 25px;
   bottom: 0; 
-  right: 200px;
-  width: 200px;
+  width: 240px;
   padding: 0;
   overflow: scroll;
 }
@@ -301,7 +326,7 @@ header a {
   padding: 2px 0;
   margin: 0 0 5px;
   font-weight: bold;
-  color: rgba(196, 77, 77, 0.9);
+  color: #000;
 }
 
 .side ul li.all { position: relative; }
@@ -310,10 +335,12 @@ header a {
   position: absolute;
   top: 4px;
   left: 0;
-  font-size: 12px;
-  color: rgba(196, 77, 77, 0.9);
+  font-size: 9px;
+  color: #000;
 }
-.side ul li.all.active:before { content: '▼'; top: 5px; font-size: 12px; }
+.side ul li.all.active:before { 
+  content: '▼'; top: 7px; left: 2px; font-size: 9px;
+}
 
 .side ul li.all a {
   padding-left: 20px;
@@ -353,17 +380,23 @@ main {
 /*  position: fixed;*/
 /*  top: 40px; left: 240px;*/
   bottom: 0; right: 0;
-  padding: 80px 25px 0 240px;
+  padding: 80px 25px 20px 290px;
 
 /*  overflow: scroll;*/
 }
 section {
   position: relative;
-  max-width: 800px;
   margin: 0 0 35px;
-  padding: 0 0 0 150px;
+  padding: 0 0 20px 150px;
   border-bottom: solid 1px rgba(172, 175, 156, 0.15);
+  overflow: hidden;
 }
+
+section hr {
+  color: rgba(172, 175, 156, 0.15);
+  border-color: rgba(172, 175, 156, 0.15);
+}
+
 section .meta {
   position: absolute;
   top: 5px; left: 0px;
@@ -380,17 +413,20 @@ section .meta span {
 section .meta .source {
   width: 110px;
   padding: 5px;
-  background: #f1f2f3;
-  font-weight: bold;
-  color: #000;
+  background: #ed4732;
+  font-family: "Gnuolane";
+  font-size: 13px; font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  letter-spacing: -1px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+          font-smoothing: antialiased;
 }
 section .meta .source a {
-  color: #000;
+  color: #fff;
 } 
 section .meta .author {
   text-align: left;
@@ -415,10 +451,15 @@ section .title .date {
   color: rgba(68, 66, 62, 0.4);
 }
 section .title h1 {
+  font-family: 'Gnuolane';
+  font-size: 25px;
+  line-height: 28px;
   color: rgba(68, 66, 62, 1);
-  padding: 0 100px 0 0;
+  padding: 0 150px 0 0;
+  -webkit-font-smoothing: antialiased;
+          font-smoothing: antialiased;
 }
-section .title h1 a       { color: rgba(68, 66, 62, 1); }
+section .title h1 a       { color: #000; border: none; }
 section .title h1 a:hover { color: rgba(68, 66, 62, 0.8); }
 
 section .title h5 {
@@ -451,10 +492,78 @@ section div.content p {
   margin: 0px;
   line-height: 20px;
 }
-
 section div.content a {
-  text-decoration: underline;
+  color: #555;
+  text-decoration:none;
+  border-bottom: dashed 1px #bbb;
 }
+section div.content a:hover { color: #aaa; }
+
+section div.content h1,
+section div.content h2,
+section div.content h3,
+section div.content h4,
+section div.content h5 { margin: 0 0 10px; color: #444; }  
+
+section div.content h1 { font-size: 18px; }
+section div.content h2 { font-size: 16px; }
+section div.content h3 { font-size: 14px; }
+
+section div.content pre {
+  overflow-x: scroll;
+  background: #f4f4f4; 
+  margin: 0 0 20px;
+  padding: 10px;
+  font-size: 11px;
+  line-height: 16px;
+  color: #333;
+  border: solid 1px #dedede;
+  border-radius: 2px;
+  font-family: Monaco, 'Andale Mono', monospace;
+}
+section div.content pre.ruby { font-size: 12px; }
+section div.content pre code { 
+  padding: 4px; 
+  font-family: Monaco, 'Andale Mono', monospace;
+}
+section div.content p code,
+section div.content ol code,  
+section div.content li code {
+  background: #f4f4f4; 
+  color: #333;
+  border: solid 1px #dedede;
+  font-size: 11px;
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-family: Monaco, 'Andale Mono', monospace;
+}
+
+section div.content ul {
+  list-style: disc outside;
+  margin: 0 0 20px 25px;
+}
+section div.content ol {
+  list-style: decimal; outside;
+  margin: 0 0 20px 35px;
+}
+section div.content ul li,
+section div.content ol li { margin: 0 0 5px; }
+
+
+section div.content img,
+section div.content iframe { max-width: 100%;  margin: 0 0 5px; }
+
+section div.content h4 img, 
+section div.content p img { 
+  display: block;
+  margin: 0 0 5px;
+}
+
+section div.content caption { 
+  margin: 0 0 5px;
+}
+
+section div.content table { margin: 0 0 20px; }
 
 section div.content ul { 
   margin-left: 20px;
@@ -503,7 +612,8 @@ main.condensed section h1 {
   float: left;
   max-width: 600px;
   padding: 0;
-  font-size: 13px; font-weight: 400; 
+  font-family: 'Helvetica';
+  font-size: 14px; font-weight: 400; 
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -524,11 +634,17 @@ main.condensed section.expanded h1 {
   font-size: 18px;
   line-height: 22px;
   font-weight: bold;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: visible;
 }
 
 main.condensed section.expanded .title {
   position: relative;
   margin: 0 0 15px; 
+}
+main.condensed section.expanded .source {
+  font-size: 14px;
 }
 main.condensed section.expanded div.content {
   display: block; 
