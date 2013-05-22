@@ -30,6 +30,15 @@ class Feed < ActiveRecord::Base
     self
   end
 
+  def short_hash
+    {
+      id:       id, 
+      title:    title, 
+      url:      url,
+      site_url: site_url
+    }
+  end
+
   def self.import(url)
     FeedImport.new(url).run
   end

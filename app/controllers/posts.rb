@@ -1,7 +1,7 @@
 class Reeder::Application
   get '/api/posts' do
-    posts = Post.recent.paginate(page: params[:page], per_page: posts_per_page)
-    json_response(posts)
+    posts = Post.includes(:feed).recent.paginate(page: params[:page], per_page: posts_per_page)
+    json_response(posts.map(&:detailed_hash))
   end
 
   get '/api/posts/:id' do

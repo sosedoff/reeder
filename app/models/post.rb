@@ -39,6 +39,10 @@ class Post < ActiveRecord::Base
     }
   end
 
+  def detailed_hash
+    base_hash.merge(feed: feed.short_hash)
+  end
+
   def as_json(options={})
     hash = base_hash
     hash
