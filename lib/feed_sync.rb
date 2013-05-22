@@ -8,22 +8,31 @@ class FeedSync
   end
 
   def run
-    entries.each do |e|
-      @feed.posts.create(
-        title:        e.title,
-        author:       e.author,
-        url:          e.url,
-        published_at: e.published,
-        content:      entry_content(e)
-      )
+    feed_details = get_feed_details
+
+    if feed_details
+      entries = feed_details.entries || []
+
+      entries.each do |e|
+        @feed.posts.create(
+          title:        e.title,
+          author:       e.author,
+          url:          e.url,
+          published_at: e.published,
+          content:      entry_content(e)
+        )
+      end
+
+      @feed.last_modified_at = feed_details.last_modified
+      @feed.restat!(true)
     end
   end
 
   private
 
-  def entries
+  def get_feed_details
     result = Feedzirra::Feed.fetch_and_parse(@feed.url)
-    result.class.name =~ /Feedzirra/ ? result.entries : []
+    result = result.class.name =~ /Feedzirra/ ? result : nil
   end
 
   def entry_content(entry)

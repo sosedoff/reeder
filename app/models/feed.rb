@@ -20,6 +20,15 @@ class Feed < ActiveRecord::Base
     posts.unread.update_all(read_at: Time.now)
   end
 
+  def restat!(save_record=false)
+    self.posts_count = posts.count
+    self.unread_posts_count = posts.unread.count
+
+    save if save_record
+
+    self
+  end
+
   def self.import(url)
     FeedImport.new(url).run
   end
