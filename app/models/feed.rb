@@ -18,6 +18,7 @@ class Feed < ActiveRecord::Base
 
   def read_all
     posts.unread.update_all(read_at: Time.now)
+    restat!
   end
 
   def restat!(save_record=false)
