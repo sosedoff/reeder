@@ -44,7 +44,7 @@
   </span>
   <div class="title">
     <span class="date">
-      {{ post.published_at }}
+      {{ post.published_at | postDateFormatter }}
     </span>
     <h1>
       <a href="{{ post.url }}" target="_blank" ng-bind-html-unsafe="post.title"></a>

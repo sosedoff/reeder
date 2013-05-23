@@ -29,12 +29,14 @@ module Reeder
 
       js :app, [
         '/js/jquery.js',
+        '/js/moment.js',
         '/js/angular.js',
         '/js/angular-resource.js',
         '/js/angular-sanitize.js',
         '/js/styles.js',
         '/js/application.js',
-        '/js/controllers.js'
+        '/js/controllers.js',
+        '/js/helpers.js'
       ]
     end
 
