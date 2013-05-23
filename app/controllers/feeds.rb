@@ -8,8 +8,12 @@ class Reeder::Application
   end
 
   get '/api/feeds/:id/posts' do
-    posts = find_feed.posts.recent.paginate(page: params[:page], per_page: posts_per_page)
-    json_response(posts)
+    posts = find_feed.posts.
+      includes(:feed).
+      recent.
+      paginate(page: params[:page], per_page: posts_per_page)
+
+    json_response(posts.map(&:detailed_hash))
   end
 
   post '/api/feeds' do
