@@ -8,19 +8,11 @@ class FeedSync
   end
 
   def run
-    feed_details = get_feed_details
+    entries = feed_entries
 
-    if feed_details
-      entries = feed_details.entries || []
-
-      entries.each do |e|
-        @feed.posts.create(
-          title:        e.title,
-          author:       e.author,
-          url:          e.url,
-          published_at: e.published,
-          content:      entry_content(e)
-        )
+    if feed_entries
+      feed_entries.each do |e|
+        @feed.posts.create(new_post_attributes(e))
       end
 
       @feed.last_modified_at = feed_details.last_modified
@@ -35,6 +27,11 @@ class FeedSync
     result = result.class.name =~ /Feedzirra/ ? result : nil
   end
 
+  def feed_entries
+    details = get_feed_details
+    details ? (details.entries || []) : nil
+  end
+
   def entry_content(entry)
     case entry
     when Feedzirra::Parser::ITunesRSSItem
@@ -42,5 +39,15 @@ class FeedSync
     else
       entry.content || entry.summary
     end
+  end
+
+  def new_post_attributes(entry)
+    {
+      title:        entry.title,
+      author:       entry.author,
+      url:          entry.url,
+      published_at: entry.published,
+      content:      entry_content(entry)
+    }
   end
 end
