@@ -8,14 +8,14 @@ class FeedSync
   end
 
   def run
-    entries = feed_entries
+    details = get_feed_details
 
-    if feed_entries
-      feed_entries.each do |e|
+    if details
+      (details.entries || []).each do |e|
         @feed.posts.create(new_post_attributes(e))
       end
-
-      @feed.last_modified_at = feed_details.last_modified
+      
+      @feed.last_modified_at = details.last_modified
       @feed.restat!(true)
     end
   end
@@ -25,11 +25,6 @@ class FeedSync
   def get_feed_details
     result = Feedzirra::Feed.fetch_and_parse(@feed.url)
     result = result.class.name =~ /Feedzirra/ ? result : nil
-  end
-
-  def feed_entries
-    details = get_feed_details
-    details ? (details.entries || []) : nil
   end
 
   def entry_content(entry)
