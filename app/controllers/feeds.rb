@@ -39,7 +39,7 @@ class Reeder::Application
     feed = FeedImport.new(url).run
 
     if feed
-      present(feed)
+      present(feed, as: :feed)
     else
       json_error("Invalid feed URL")
     end
@@ -58,7 +58,7 @@ class Reeder::Application
       Feed.create(title: l[:name], url: l[:url])
     end
   
-    present(feeds)
+    present(feeds, as: :feed)
   end
 
   delete '/api/feeds/:id' do
