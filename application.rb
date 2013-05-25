@@ -53,6 +53,18 @@ module Reeder
       def render_partial(name, locals={})
         erb(name.to_sym, layout: false, locals: locals)
       end
+
+      def present(obj, options={})
+        klass = Kernel.const_get(Presenter.class_for(obj))
+
+        if obj.respond_to?(:map)
+          presenter = obj.map { |k| klass.new(k, options) }
+        else
+          presenter = klass.new(obj, options)
+        end
+
+        json_response(presenter)
+      end
     end
 
     get '/' do

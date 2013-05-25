@@ -1,19 +1,14 @@
 class Reeder::Application
   get '/api/feeds' do
-    json_response(Feed.recent)
+    present(recent_feeds)
   end
 
   get '/api/feeds/:id' do
-    json_response(find_feed)
+    present(feed)
   end
 
   get '/api/feeds/:id/posts' do
-    posts = find_feed.posts.
-      includes(:feed).
-      recent.
-      paginate(page: params[:page], per_page: posts_per_page)
-
-    json_response(posts.map(&:detailed_hash))
+    present(feed_posts, with: :feed)
   end
 
   post '/api/feeds' do
@@ -67,7 +62,7 @@ class Reeder::Application
   end
 
   delete '/api/feeds/:id' do
-    if find_feed.destroy
+    if feed.destroy
       json_response(deleted: true)
     else
       json_error("Unable to delete feed")
@@ -76,7 +71,7 @@ class Reeder::Application
 
   private
 
-  def find_feed
+  def feed
     @feed = Feed.find_by_id(params[:id])
 
     if @feed.nil?
@@ -84,5 +79,16 @@ class Reeder::Application
     end
 
     @feed
+  end
+
+  def feed_posts
+    feed.posts.
+      includes(:feed).
+      recent.
+      paginate(page: params[:page], per_page: posts_per_page)
+  end
+
+  def recent_feeds
+    Feed.recent
   end
 end
