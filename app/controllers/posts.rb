@@ -1,6 +1,6 @@
 class Reeder::Application
   get '/api/posts' do
-    present(recent_posts, with: :feed)
+    present(recent_posts, include: :feed)
   end
 
   get '/api/posts/:id' do

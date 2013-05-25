@@ -13,6 +13,16 @@ class Presenter
       hash[attr] = record.send(attr)
     end
 
+    if options[:include]
+      [options[:include]].flatten.each do |attr|
+        if self.respond_to?(attr)
+          hash[attr] = self.send(attr)
+        else
+          hash[attr] = record.send(attr)
+        end
+      end
+    end
+
     hash
   end
 

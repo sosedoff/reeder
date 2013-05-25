@@ -8,7 +8,7 @@ class Reeder::Application
   end
 
   get '/api/feeds/:id/posts' do
-    present(feed_posts, with: :feed)
+    present(feed_posts, include: :feed)
   end
 
   post '/api/feeds' do

@@ -3,4 +3,8 @@ class PostPresenter < Presenter
   attribute :title, :author, :url, :content
   attribute :published_at
   attribute :read_at, :bookmarked
+  
+  def feed
+    FeedPresenter.new(record.feed)
+  end
 end
