@@ -55,15 +55,24 @@ module Reeder
       end
 
       def present(obj, options={})
-        klass = Kernel.const_get(Presenter.class_for(obj))
-
-        if obj.respond_to?(:map)
-          presenter = obj.map { |k| klass.new(k, options) }
+        if options[:as]
+          name = "#{options.delete(:as).to_s.capitalize}Presenter"
         else
-          presenter = klass.new(obj, options)
+          name = Presenter.class_for(obj)
         end
 
+        klass     = Kernel.const_get(name)
+        presenter = present_object(obj, klass, options)
+
         json_response(presenter)
+      end
+
+      def present_object(obj, klass, options)
+        if obj.respond_to?(:map)
+          obj.map { |k| klass.new(k, options) }
+        else
+          klass.new(obj, options)
+        end
       end
     end
 

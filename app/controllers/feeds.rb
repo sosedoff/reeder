@@ -1,14 +1,14 @@
 class Reeder::Application
   get '/api/feeds' do
-    present(recent_feeds)
+    present(recent_feeds, as: :feed)
   end
 
   get '/api/feeds/:id' do
-    present(feed)
+    present(feed, as: :feed)
   end
 
   get '/api/feeds/:id/posts' do
-    present(feed_posts, include: :feed)
+    present(feed_posts, as: :post, include: :feed,)
   end
 
   post '/api/feeds' do
