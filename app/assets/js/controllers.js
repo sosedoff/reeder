@@ -23,7 +23,9 @@ angular.module('reeder.controllers', []).
       $scope.feed = resp;
 
       $http.get("/api/feeds/" + feed_id + "/posts").success(function(resp) {
-        $scope.posts = resp;
+        $scope.posts_count  = resp.total_entries;
+        $scope.current_page = resp.page;
+        $scope.posts        = resp.records;
       });
     });
   });
