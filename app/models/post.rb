@@ -25,26 +25,4 @@ class Post < ActiveRecord::Base
     update_attribute(:bookmarked, true) if !bookmarked
     self
   end
-
-  def base_hash
-    {
-      id:           id,
-      title:        title,
-      url:          url,
-      content:      content,
-      published_at: published_at,
-      read_at:      read_at,
-      read:         read_at.present?,
-      bookmarked:   bookmarked
-    }
-  end
-
-  def detailed_hash
-    base_hash.merge(feed: feed.short_hash)
-  end
-
-  def as_json(options={})
-    hash = base_hash
-    hash
-  end
 end
