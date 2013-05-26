@@ -8,7 +8,7 @@ class Reeder::Application
   end
 
   get '/api/feeds/:id/posts' do
-    present(feed_posts, as: :post, include: :feed,)
+    present(feed_posts, as: :post, include: :feed, paginate: true)
   end
 
   post '/api/feeds' do
@@ -82,10 +82,7 @@ class Reeder::Application
   end
 
   def feed_posts
-    feed.posts.
-      includes(:feed).
-      recent.
-      paginate(page: params[:page], per_page: posts_per_page)
+    feed.posts.includes(:feed).recent
   end
 
   def recent_feeds

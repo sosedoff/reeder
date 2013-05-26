@@ -61,10 +61,28 @@ module Reeder
           name = Presenter.class_for(obj)
         end
 
+        paginate = options.delete(:paginate)
+
+        if paginate && obj.respond_to?(:paginate)
+          obj = obj.paginate(
+            page: params[:page],
+            per_page: 50
+          )
+        end
+
         klass     = Kernel.const_get(name)
         presenter = present_object(obj, klass, options)
 
-        json_response(presenter)
+        if paginate
+          json_response(
+            count:    obj.total_entries,
+            page:     obj.current_page,
+            per_page: obj.per_page,
+            records:  presenter
+          )
+        else
+          json_response(presenter)
+        end
       end
 
       def present_object(obj, klass, options)
