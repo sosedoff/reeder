@@ -55,22 +55,6 @@ describe Post do
     end
   end
 
-  describe '#base_hash' do
-    let(:post) { Fabricate(:post, feed_id: feed.id) }
-
-    it 'returns hash' do
-      expect(post.base_hash).to be_a Hash
-    end
-
-    it 'includes post details' do
-      expect(post.base_hash.keys).to include(
-        :id, :title, :url, :content,
-        :published_at, :read_at,
-        :read, :bookmarked
-      )
-    end
-  end
-
   describe '.recent' do
     let(:posts) { feed.posts.recent }
 
