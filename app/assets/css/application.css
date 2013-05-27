@@ -233,7 +233,7 @@ header a {
 }
 
 .controls ul li a i,
-.controls ul li span i { font-size: 17.5px; }
+.controls ul li span i { font-size: 14px; }
 
 .controls ul li a:hover i { color: #ed4732; }
 
