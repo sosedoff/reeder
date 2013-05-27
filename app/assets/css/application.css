@@ -525,9 +525,8 @@ section div.content p {
   line-height: 20px;
 }
 section div.content a {
-  color: #555;
-  text-decoration:none;
-  border-bottom: dashed 1px #bbb;
+  color: #ed4732;
+  text-decoration: underline;
 }
 section div.content a:hover { color: #aaa; }
 
