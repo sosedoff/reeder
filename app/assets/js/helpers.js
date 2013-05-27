@@ -27,9 +27,12 @@ angular.module('reeder.helpers', []).
           if (!url.match(/^http(s?):/)) {
             var new_url = post.feed.site_url;
 
-            if (url[0] == '/') new_url += url;
-            else new_url += '/' + url;
-            content = content.replace(url, new_url);
+            if (url.substring(0, 2) != '//') {
+              if (url[0] == '/') new_url += url;
+              else new_url += '/' + url;
+          
+              content = content.replace(url, new_url);
+            }
           }
         }
       }
