@@ -19,6 +19,9 @@ angular.module('reeder.controllers', []).
   controller('FeedController', function FeedController($scope, $http, $route, $routeParams) {
     var feed_id = $routeParams.feed_id;
 
+    $("a.feed").removeClass('active');
+    $("a.feed[data-id=" + feed_id + "]").addClass('active');
+
     $http.get("/api/feeds/" + feed_id).success(function(resp) {
       $scope.feed = resp;
 

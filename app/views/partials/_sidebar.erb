@@ -3,7 +3,7 @@
     <a ng-href="/">Subscriptions <b>({{ feeds_count }})</b></a>
     <ul>
       <li ng-repeat="feed in feeds">
-        <a ng-href="/#/feeds/{{ feed.id }}">{{ feed.title }}</a>
+        <a ng-href="/#/feeds/{{ feed.id }}" class="feed" data-id="{{ feed.id }}">{{ feed.title }}</a>
       </li>
     </ul>
   </li>
