@@ -25,7 +25,7 @@ GEM
     arel (3.0.2)
     backports (3.3.1)
     builder (3.0.4)
-    celluloid (0.14.0)
+    celluloid (0.14.1)
       timers (>= 1.0.0)
     clockwork (0.5.2)
       activesupport
@@ -48,7 +48,7 @@ GEM
     loofah (1.2.1)
       nokogiri (>= 1.4.4)
     method_source (0.8.1)
-    multi_json (1.7.3)
+    multi_json (1.7.4)
     nokogiri (1.5.9)
     pg (0.15.1)
     pry (0.9.12.2)
@@ -80,8 +80,8 @@ GEM
       nokogiri (~> 1.5.2)
     shotgun (0.9)
       rack (>= 1.0)
-    sidekiq (2.12.0)
-      celluloid (>= 0.14.0)
+    sidekiq (2.12.1)
+      celluloid (>= 0.14.1)
       connection_pool (>= 1.0.0)
       json
       redis (>= 3.0)
@@ -97,7 +97,7 @@ GEM
     sinatra-activerecord (1.2.2)
       activerecord (~> 3.0)
       sinatra (~> 1.0)
-    sinatra-assetpack (0.2.2)
+    sinatra-assetpack (0.2.3)
       backports
       jsmin
       rack-test
