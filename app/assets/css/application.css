@@ -303,6 +303,10 @@ header a {
   background: #c44d4d;
   opacity: 0.8;
 }
+
+.controls div.search {
+  float: left;
+}
  
 /*============================================================
  Sidebar 
