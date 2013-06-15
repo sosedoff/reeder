@@ -1,12 +1,7 @@
 angular.module('reeder.controllers', []).
   controller('IndexController', function IndexController($scope, $http) {
-    $http.get('/api/feeds').success(function(data) {
-      $scope.feeds       = data;
-      $scope.feeds_count = data.length;
-
-      $http.get('/api/posts').success(function(resp) {
-        $scope.posts = resp;
-      });
+    $http.get('/api/posts').success(function(resp) {
+      $scope.posts = resp;
     });
   }).
 
@@ -31,4 +26,12 @@ angular.module('reeder.controllers', []).
         $scope.posts        = resp.records;
       });
     });
+  }).
+
+  controller('SidebarController', function SidebarController($scope, $http) {
+    $http.get('/api/feeds').success(function(data) {
+      $scope.feeds       = data;
+      $scope.feeds_count = data.length;
+    });
   });
+
