@@ -1,6 +1,7 @@
 class OpmlImport
   def initialize(data)
-    @data = data
+    @data = File.read(data) rescue nil
+    @data = data if @data.nil?
   end
 
   def run
