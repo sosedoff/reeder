@@ -21,3 +21,5 @@ autoload :FeedImport,    'lib/feed_import'
 autoload :FeedSync,      'lib/feed_sync'
 autoload :OpmlParser,    'lib/opml_parser'
 autoload :Presenter,     'lib/presenter'
+
+autoload :ApplicationHelper, 'app/helpers/application_helper'
