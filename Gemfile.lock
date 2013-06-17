@@ -23,7 +23,7 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
-    backports (3.3.1)
+    backports (3.3.2)
     builder (3.0.4)
     celluloid (0.14.1)
       timers (>= 1.0.0)
@@ -36,7 +36,7 @@ GEM
     daemons (1.1.9)
     database_cleaner (1.0.1)
     diff-lcs (1.2.4)
-    dotenv (0.7.0)
+    dotenv (0.8.0)
     eventmachine (1.0.3)
     fabrication (2.7.2)
     foreman (0.63.0)
@@ -48,7 +48,7 @@ GEM
     loofah (1.2.1)
       nokogiri (>= 1.4.4)
     method_source (0.8.1)
-    multi_json (1.7.6)
+    multi_json (1.7.7)
     nokogiri (1.5.10)
     pg (0.15.1)
     pry (0.9.12.2)
@@ -80,7 +80,7 @@ GEM
       nokogiri (~> 1.5.2)
     shotgun (0.9)
       rack (>= 1.0)
-    sidekiq (2.12.1)
+    sidekiq (2.12.4)
       celluloid (>= 0.14.1)
       connection_pool (>= 1.0.0)
       json
@@ -97,7 +97,7 @@ GEM
     sinatra-activerecord (1.2.2)
       activerecord (~> 3.0)
       sinatra (~> 1.0)
-    sinatra-assetpack (0.2.3)
+    sinatra-assetpack (0.2.5)
       backports
       jsmin
       rack-test
