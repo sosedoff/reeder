@@ -4,7 +4,7 @@ Experimental app to read RSS subscriptions
 
 ## Requirements
 
-- Ruby 1.9.3
+- Ruby 2.0
 - PostgreSQL
 - Redis
 
