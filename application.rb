@@ -48,6 +48,7 @@ module Reeder
       erb :index
     end
 
+    require 'app/controllers/users'
     require 'app/controllers/feeds'
     require 'app/controllers/posts'
     require 'app/controllers/base'

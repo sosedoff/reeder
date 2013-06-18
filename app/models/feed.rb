@@ -3,10 +3,12 @@ class Feed < ActiveRecord::Base
 
   attr_accessible :title, :description, :url, :site_url, :last_modified_at, :status
 
+  belongs_to :user
   has_many :posts, dependent: :destroy
 
+  validates :user,  presence: true
   validates :title, presence: true
-  validates :url,   presence: true, uniqueness: true
+  validates :url,   presence: true, uniqueness: { scope: :user_id }
 
   scope :recent, order('last_modified_at DESC')
 

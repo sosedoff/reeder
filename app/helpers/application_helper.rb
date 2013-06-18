@@ -1,6 +1,7 @@
 module ApplicationHelper
-  def json_response(data)
-    content_type :json, encoding: 'utf8'
+  def json_response(data, code=200)
+    status(code)
+    content_type(:json, encoding: 'utf8')
     data.to_json
   end
 
@@ -19,7 +20,8 @@ module ApplicationHelper
       name = Presenter.class_for(obj)
     end
 
-    paginate = options.delete(:paginate)
+    status_code = options.delete(:status) || 200
+    paginate    = options.delete(:paginate)
 
     if paginate && obj.respond_to?(:paginate)
       obj = obj.paginate(
@@ -32,14 +34,14 @@ module ApplicationHelper
     presenter = present_object(obj, klass, options)
 
     if paginate
-      json_response(
+      json_response({
         count:    obj.total_entries,
         page:     obj.current_page,
         per_page: obj.per_page,
         records:  presenter
-      )
+      }, status_code)
     else
-      json_response(presenter)
+      json_response(presenter, status_code)
     end
   end
 

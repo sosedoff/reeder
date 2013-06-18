@@ -15,6 +15,7 @@ autoload :User,          'app/models/user'
 autoload :Feed,          'app/models/feed'
 autoload :Post,          'app/models/post'
 autoload :FeedWorker,    'app/workers/feed_worker'
+autoload :UserPresenter, 'app/presenters/user_presenter'
 autoload :FeedPresenter, 'app/presenters/feed_presenter'
 autoload :PostPresenter, 'app/presenters/post_presenter'
 
