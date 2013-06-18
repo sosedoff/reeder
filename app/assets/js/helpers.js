@@ -10,7 +10,7 @@ angular.module('reeder.helpers', []).
   filter('postDateFormatter', function() {
     return function(unformatted_date) {
       var date = new Date(unformatted_date);
-      return moment(date).format('dddd, h:m a');
+      return moment(date).format('MMM Do, hh:mm a');
     };
   }).
 
@@ -27,9 +27,12 @@ angular.module('reeder.helpers', []).
           if (!url.match(/^http(s?):/)) {
             var new_url = post.feed.site_url;
 
-            if (url[0] == '/') new_url += url;
-            else new_url += '/' + url;
-            content = content.replace(url, new_url);
+            if (url.substring(0, 2) != '//') {
+              if (url[0] == '/') new_url += url;
+              else new_url += '/' + url;
+          
+              content = content.replace(url, new_url);
+            }
           }
         }
       }

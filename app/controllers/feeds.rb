@@ -52,11 +52,7 @@ class Reeder::Application
       json_error("OPML data required")
     end
 
-    links = OpmlParser.new.parse_feeds(data)
-    
-    feeds = links.map do |l| 
-      Feed.create(title: l[:name], url: l[:url])
-    end
+    feeds = OpmlImport.new(data).run
   
     present(feeds, as: :feed)
   end
