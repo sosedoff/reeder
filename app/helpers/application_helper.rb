@@ -52,4 +52,8 @@ module ApplicationHelper
       klass.new(obj, options)
     end
   end
+
+  def api_user
+    @api_user
+  end
 end

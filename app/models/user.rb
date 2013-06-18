@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   before_save :generate_api_token, on: :create
 
-  def generate_api_token(len=10)
+  def generate_api_token(len=16)
     self.api_token = SecureRandom.hex(len)
   end
 end

@@ -44,10 +44,25 @@ module Reeder
       include ApplicationHelper
     end
 
+    before '/api*' do
+      token = params[:api_token]
+
+      if token.blank?
+        json_error("API token required", 401)
+      end
+
+      @api_user = User.find_by_api_token(token)
+
+      if @api_user.nil?
+        json_error("Invalid API token", 401)
+      end
+    end
+
     get '/' do
       erb :index
     end
 
+    require 'app/controllers/profile'
     require 'app/controllers/users'
     require 'app/controllers/feeds'
     require 'app/controllers/posts'

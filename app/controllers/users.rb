@@ -30,7 +30,7 @@ class Reeder::Application
   # - password
   #
   post '/api/authenticate' do
-
+    json_error("Not implemented")
   end
 
   private
