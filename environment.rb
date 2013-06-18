@@ -11,6 +11,7 @@ require 'sidekiq'
 require 'config/initializers/active_record'
 require 'config/initializers/sidekiq'
 
+autoload :User,          'app/models/user'
 autoload :Feed,          'app/models/feed'
 autoload :Post,          'app/models/post'
 autoload :FeedWorker,    'app/workers/feed_worker'

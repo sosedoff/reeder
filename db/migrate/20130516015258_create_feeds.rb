@@ -1,6 +1,7 @@
 class CreateFeeds < ActiveRecord::Migration
   def change
     create_table :feeds do |t|
+      t.integer     :user_id, null: false
       t.string      :title
       t.string      :description
       t.string      :url
@@ -12,7 +13,8 @@ class CreateFeeds < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :feeds, :url
-    add_index :feeds, :last_modified_at
+    add_index :feeds, :user_id
+    add_index :feeds, [:user_id, :url]
+    add_index :feeds, [:user_id, :last_modified_at]
   end
 end
