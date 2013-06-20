@@ -14,7 +14,18 @@ class Reeder::Application
   end
 
   post '/api/authenticate' do
-    json_error("Not implemented")
+    email, password = params[:email], params[:password]
+
+    json_error("Email required") if email.blank?
+    json_error("Password required") if password.blank?
+
+    user = User.authenticate(email, password)
+
+    if user
+      present(user, as: 'user')
+    else
+      json_error("Invalid email or password")
+    end
   end
 
   private
