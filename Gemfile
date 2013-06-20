@@ -17,6 +17,7 @@ gem 'sidekiq'
 gem 'foreman'
 gem 'will_paginate'
 gem 'clockwork'
+gem 'bcrypt-ruby'
 
 group :development do
   gem 'shotgun'
