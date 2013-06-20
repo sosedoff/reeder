@@ -54,11 +54,12 @@ describe Feed do
   end
 
   describe '.recent' do
+    let(:user)  { Fabricate(:user) }
     let(:feeds) { Feed.recent }
 
     before do
-      Fabricate(:feed, title: 'A', url: 'http://a.com', last_modified_at: Time.mktime(2013, 01, 01))
-      Fabricate(:feed, title: 'B', url: 'http://b.com', last_modified_at: Time.mktime(2013, 01, 02))
+      Fabricate(:feed, title: 'A', url: 'http://a.com', last_modified_at: Time.mktime(2013, 01, 01), user: user)
+      Fabricate(:feed, title: 'B', url: 'http://b.com', last_modified_at: Time.mktime(2013, 01, 02), user: user)
     end
 
     it 'returns posts ordered by publication date' do
