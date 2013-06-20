@@ -1,16 +1,17 @@
 class FeedImport
-  def initialize(url)
-    @url = url
+  def initialize(user, url)
+    @user = user
+    @url  = url
   end
 
   def run
     feed = get_feed_details
 
     if feed
-      record = Feed.find_by_url(feed.feed_url) 
+      record = @user.feeds.find_by_url(feed.feed_url) 
       return record if record.present?
 
-      Feed.create(new_feed_attributes(feed))
+      @user.feeds.create(new_feed_attributes(feed))
     end
   end
 

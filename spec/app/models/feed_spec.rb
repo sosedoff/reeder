@@ -69,10 +69,12 @@ describe Feed do
   end
 
   describe '.import' do
+    let(:user) { Fabricate(:user) }
+
     it 'imports a new feed from url' do
       url = 'http://foo.com'
       FeedImport.any_instance.should_receive(:run)
-      Feed.import(url)
+      Feed.import(user, url)
     end
   end
 end

@@ -36,7 +36,7 @@ class Reeder::Application
       json_error("Feed already exists")
     end
 
-    feed = FeedImport.new(url).run
+    feed = FeedImport.new(api_user, url).run
 
     if feed
       present(feed, as: :feed)

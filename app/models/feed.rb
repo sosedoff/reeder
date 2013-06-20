@@ -32,7 +32,7 @@ class Feed < ActiveRecord::Base
     self
   end
 
-  def self.import(url)
-    FeedImport.new(url).run
+  def self.import(user, url)
+    FeedImport.new(user, url).run
   end
 end
