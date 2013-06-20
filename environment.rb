@@ -7,6 +7,7 @@ require 'active_record'
 require 'loofah'
 require 'feedzirra'
 require 'sidekiq'
+require 'bcrypt'
 
 require 'config/initializers/active_record'
 require 'config/initializers/sidekiq'
