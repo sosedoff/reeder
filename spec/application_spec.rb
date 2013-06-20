@@ -18,11 +18,22 @@ describe Reeder::Application do
   end
 
   describe 'GET /api/*' do
-    it 'returns error on non-existent endpoint' do
+    context 'with api token' do
+      let(:api_token) { Fabricate(:user).api_token }
+
+      it 'returns error on non-existent endpoint' do
+        get '/api/foo/bar', api_token: api_token
+
+        expect(last_response.status).to eq 404
+        expect(json_error).to eq 'Invalid route'
+      end
+    end
+
+    it 'returns authentication error' do
       get '/api/foo/bar'
 
-      expect(last_response.status).to eq 404
-      expect(json_error).to eq 'Invalid route'
+      expect(last_response.status).to eq 401
+      expect(json_error).to eq 'API token required'
     end
   end
 end
