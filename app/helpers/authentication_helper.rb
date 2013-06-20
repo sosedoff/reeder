@@ -4,20 +4,23 @@ module AuthenticationHelper
   }
 
   def authenticate_user
-    token = params[:api_token]
-
-    if token.blank?
+    if api_token.blank?
       json_error("API token required", 401)
     end
 
-    @api_user = User.find_by_api_token(token)
+    @api_user = User.find_by_api_token(api_token)
 
     if @api_user.nil?
       json_error("Invalid API token", 401)
     end
   end
 
+  def api_token
+    @api_token ||= params[:api_token]
+  end
+
   def require_authentication?
-    !PUBLIC_ROUTES[request.request_method].include?(request.path)
+    route = PUBLIC_ROUTES[request.request_method] || []
+    !route.include?(request.path)
   end
 end
