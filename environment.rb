@@ -26,4 +26,5 @@ autoload :OpmlParser,    'lib/opml_parser'
 autoload :OpmlImport,    'lib/opml_import'
 autoload :Presenter,     'lib/presenter'
 
-autoload :ApplicationHelper, 'app/helpers/application_helper'
+autoload :ApplicationHelper,    'app/helpers/application_helper'
+autoload :AuthenticationHelper, 'app/helpers/authentication_helper'

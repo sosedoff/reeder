@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
 
   validates :name,     presence: true
   validates :email,    presence: true, uniqueness: true
-  validates :password, presence: true, confirmation: true, if: :new_record?
+  
+  validates :password, presence: true, 
+                       confirmation: true, 
+                       length: { in: 6..64 },
+                       if: :validate_password?
 
   before_save :encrypt_password
   before_save :generate_api_token, on: :create
@@ -28,5 +32,9 @@ class User < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def validate_password?
+    new_record? || password.present?
   end
 end

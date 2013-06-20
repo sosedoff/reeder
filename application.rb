@@ -42,20 +42,11 @@ module Reeder
 
     helpers do
       include ApplicationHelper
+      include AuthenticationHelper
     end
 
     before '/api*' do
-      token = params[:api_token]
-
-      if token.blank?
-        json_error("API token required", 401)
-      end
-
-      @api_user = User.find_by_api_token(token)
-
-      if @api_user.nil?
-        json_error("Invalid API token", 401)
-      end
+      authenticate_user if require_authentication?
     end
 
     get '/' do
