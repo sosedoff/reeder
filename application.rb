@@ -61,11 +61,11 @@ module Reeder
     get '/' do
       erb :index
     end
-
-    require 'app/controllers/profile'
-    require 'app/controllers/users'
-    require 'app/controllers/feeds'
-    require 'app/controllers/posts'
-    require 'app/controllers/base'
   end
 end
+
+require 'app/controllers/profile'
+require 'app/controllers/users'
+require 'app/controllers/feeds'
+require 'app/controllers/posts'
+require 'app/controllers/base'
