@@ -1,13 +1,4 @@
 class Reeder::Application
-  # Create a new user
-  # 
-  # Required parameters:
-  #
-  # - user[name]
-  # - user[email]
-  # - user[password]
-  # - user[password_confirmation]
-  #
   post '/api/users' do
     if params[:user].blank?
       json_error("User attributes required")
@@ -22,13 +13,6 @@ class Reeder::Application
     end
   end
 
-  # Authenticate an existing user
-  # 
-  # Required parameters:
-  #
-  # - email
-  # - password
-  #
   post '/api/authenticate' do
     json_error("Not implemented")
   end
