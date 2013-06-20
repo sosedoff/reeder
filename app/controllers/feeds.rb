@@ -16,7 +16,7 @@ class Reeder::Application
       json_error("Feed attributes required")
     end
 
-    feed = Feed.new(params[:feed])
+    feed = api_user.feeds.new(params[:feed])
 
     if feed.save
       json_response(feed)
@@ -32,7 +32,7 @@ class Reeder::Application
       json_error("Feed URL required")
     end
 
-    if Feed.find_by_url(url)
+    if api_user.feeds.find_by_url(url)
       json_error("Feed already exists")
     end
 
@@ -68,7 +68,7 @@ class Reeder::Application
   private
 
   def feed
-    @feed = Feed.find_by_id(params[:id])
+    @feed = api_user.feeds.find_by_id(params[:id])
 
     if @feed.nil?
       json_error("Feed does not exist", 404)
@@ -82,6 +82,6 @@ class Reeder::Application
   end
 
   def recent_feeds
-    Feed.recent
+    api_user.feeds.recent
   end
 end

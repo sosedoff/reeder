@@ -1,4 +1,5 @@
 Fabricator(:feed) do
+  user { Fabricate(:user) }
   title 'Blog'
   description 'Some blog description'
   site_url 'http://foo.com'

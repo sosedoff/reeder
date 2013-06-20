@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   attr_accessible :name, :email, :password, :password_confirmation
 
+  has_many :feeds, dependent: :destroy
+
   validates :name,     presence: true
   validates :email,    presence: true, uniqueness: true
 
