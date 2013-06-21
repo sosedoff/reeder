@@ -52,7 +52,7 @@ class Reeder::Application
       json_error("OPML data required")
     end
 
-    feeds = OpmlImport.new(data).run
+    feeds = OpmlImport.new(data, api_user).run
   
     present(feeds, as: :feed)
   end
