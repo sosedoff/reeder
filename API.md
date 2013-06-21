@@ -1,7 +1,91 @@
 # API Reference
 
-- Enpoint: http://localhost:3000/api
+- Base endpoint: http://reeder.io/api
 - Output format: JSON
+
+## Errors
+
+API errors structure:
+
+```json
+{
+  "error": "Error message goes here",
+  "status": "HTTP response status code"
+}
+```
+
+## Signup
+
+To create a new user account, send request:
+
+```
+POST /api/users
+```
+
+Required parameters:
+
+- `[user][email]` - Email address
+- `[user][name]` - User name
+- `[user][password]` - Password
+
+Successful response will include new user attributes:
+
+```json
+{
+  "id": 1,
+  "name": "Dan Sosedoff",
+  "email": "dan.sosedoff@gmail.com",
+  "api_token": "3c5d7f1f1482498027d070cd14038a91",
+  "created_at": "2013-06-20T19:37:53-05:00"
+}
+```
+
+In case if user validation failed, you might get error:
+
+```json
+{
+  "error": "Email has already been taken",
+  "status": 422
+}
+```
+
+You must use returned `api_token` for all requests that require authentication.
+
+## Authentication
+
+To authenticate an existing user, send request:
+
+```
+POST /api/authenticate
+```
+
+Required parameters:
+
+- `email` - Registered email address
+- `password` - User password
+
+Successful response will include user attributes:
+
+```json
+{
+  "id": 1,
+  "name": "Dan Sosedoff",
+  "email": "dan.sosedoff@gmail.com",
+  "api_token": "3c5d7f1f1482498027d070cd14038a91",
+  "created_at": "2013-06-20T19:37:53-05:00"
+}
+```
+
+If provided email and/or password is not correct, you will get error:
+
+```json
+{
+  "error": "Invalid email or password",
+  "status": 400
+}
+```
+
+You must use returned `api_token` for all requests that require authentication.
 
 ## Feeds
 
