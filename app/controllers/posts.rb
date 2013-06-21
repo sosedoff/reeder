@@ -35,6 +35,8 @@ class Reeder::Application
     Post.
       recent.
       includes(:feed).
+      joins(:feed).
+      where('feeds.user_id = ?', api_user.id).
       paginate(page: params[:page], per_page: posts_per_page)
   end
 end
