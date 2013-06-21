@@ -5,6 +5,7 @@ class Reeder::Application
     end
 
     user = User.new(user_params)
+    user.password_confirmation = user.password
 
     if user.save
       present(user, as: 'user', status: 201)
@@ -31,7 +32,7 @@ class Reeder::Application
   private
 
   def user_params
-    allowed = ['name', 'email', 'password', 'password_confirmation']
+    allowed = ['name', 'email', 'password']
     fields  = (params[:user] || {}).select { |k,v| allowed.include?(k) }
 
     fields 
