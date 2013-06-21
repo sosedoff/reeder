@@ -7,7 +7,7 @@ class OpmlImport
 
   def run
     feeds = OpmlParser.new.parse_feeds(@data).map do |l| 
-      user.feeds.create(title: l[:name], url: l[:url])
+      @user.feeds.create(title: l[:name], url: l[:url])
     end
 
     feeds
