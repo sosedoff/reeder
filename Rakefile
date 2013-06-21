@@ -1,5 +1,9 @@
+APP_FILE  = 'application.rb'
+APP_CLASS = 'Reeder::Application'
+
 require 'bundler/setup'
 require 'sinatra/activerecord/rake'
+require 'sinatra/assetpack/rake'
 require 'pry'
 require './application.rb'
 

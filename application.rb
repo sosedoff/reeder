@@ -38,6 +38,9 @@ module Reeder
         '/js/controllers.js',
         '/js/helpers.js'
       ]
+
+      js_compression  :jsmin
+      css_compression :simple
     end
 
     helpers do
