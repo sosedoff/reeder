@@ -1,6 +1,9 @@
 module AuthenticationHelper
   PUBLIC_ROUTES = {
-    'POST' => ['/api/users']
+    'POST' => [
+      '/api/users',
+      '/api/authenticate'
+    ]
   }
 
   def authenticate_user

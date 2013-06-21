@@ -156,3 +156,46 @@ Mark post a bookmarked:
 ```
 POST /api/posts/:id/bookmark
 ```
+
+## Reference
+
+**User**
+
+- `id` - User ID (Integer)
+- `name` - Name (String)
+- `email` - Email address (String)
+- `api_token` - API authentication token (String)
+- `created_at` - Signup timestamp (DateTime)
+- `updated_at` - Last update timestamp (DateTime)
+
+**Feed**
+
+- `id` - Feed ID (Integer)
+- `title` - Name / title (String)
+- `description` - Optional description (String)
+- `url` - RSS/Atom url (String)
+- `site_url` - Optional website url (String)
+- `last_modified_at` - Last update timestamp (DateTime)
+- `status` - Feed status (String)
+- `posts_count` - Number of posts (Integer)
+- `unread_posts_count` - Number of unread posts (Integer)
+- `created_at` - Creation timestamp (DateTime)
+- `updated_at` - Update timestamp (DateTime)
+
+Available values for `status` attribute:
+
+- `ok` - Feed is functioning fine
+- `error` - Feed sync error, or url does not exist
+
+**Post**
+
+- `id` - Post ID (Integer)
+- `feed_id` - Feed ID (Integer)
+- `title` - Post title (String)
+- `author` - Author name (String)
+- `url` - Post direct url (String)
+- `content` - Original post content (String)
+- `published_at` - Publication timestamp (DateTime)
+- `read_at` - Read timestamp (DateTime)
+- `bookmarked` - Bookmark flag (Boolean)
+- `feed` - Container with `Feed` instance (Feed)
