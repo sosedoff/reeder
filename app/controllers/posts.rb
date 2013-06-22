@@ -32,11 +32,26 @@ class Reeder::Application
   end
 
   def recent_posts
-    Post.
-      recent.
+    scope = Post.recent.
       includes(:feed).
       joins(:feed).
-      where('feeds.user_id = ?', api_user.id).
-      paginate(page: params[:page], per_page: posts_per_page)
+      where('feeds.user_id = ?', api_user.id)
+
+    if param_flag(:bookmarked)
+      scope = scope.where('posts.bookmarked = ?', true)
+    end
+
+    if param_flag(:unread)
+      scope = scope.where('posts.read_at IS NULL')
+    end
+
+    scope.paginate(
+      page: params[:page], 
+      per_page: posts_per_page
+    )
+  end
+
+  def param_flag(name)
+    params[name] =~ /\A(true|1|yes)\z/ ? true : false
   end
 end
