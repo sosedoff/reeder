@@ -133,28 +133,49 @@ DELETE /api/feeds/:id
 
 ## Posts
 
-Get all recent posts:
+**Get all recent posts**
 
 ```
 GET /api/posts
 ```
 
-Get a single post:
+Optional params:
+
+- `bookmarked` - Fetch only bookmarked posts (Boolean)
+- `unread` - Fetch only unread posts (Boolean)
+
+**Get a single post**
 
 ```
 GET /api/posts/:id
 ```
 
-Mark post as read:
+**Mark post as read**
 
 ```
 POST /api/posts/:id/read
 ```
 
-Mark post a bookmarked:
+Output:
+
+```json
+{
+  "read": true
+}
+```
+
+**Bookmark Post**
 
 ```
 POST /api/posts/:id/bookmark
+```
+
+Output:
+
+```json
+{
+  "bookmarked": true
+}
 ```
 
 ## Reference
