@@ -40,6 +40,10 @@ foreman start
 
 This will start web server, feed worker and periodic update worker.
 
+## API Documentation
+
+Check `API.md` file for API documentation and reference.
+
 ## Testing
 
 Prepare database:
