@@ -9,6 +9,28 @@ describe Reeder::Application do
   let(:feed) { user.feeds.create(url: 'http://url.com', title: 'My Feed') }
 
   describe 'GET /api/posts' do
+    it 'includes posts from user feeds' do
+      user2 = Fabricate(:user, email: 'foo@bar.com')
+      post  = Fabricate(:post, feed_id: feed.id)
+
+      get '/api/posts', api_token: user.api_token
+      expect(last_response.status).to eq 200
+      expect(json_response.count).to eq 1
+
+      get '/api/posts', api_token: user2.api_token
+      expect(last_response.status).to eq 200
+      expect(json_response.count).to eq 0
+    end
+
+    it 'includes post feed' do
+      Fabricate(:post, feed_id: feed.id)
+
+      get '/api/posts', api_token: user.api_token
+
+      expect(last_response.status).to eq 200
+      expect(json_response.first['feed']).to be_a Hash
+    end
+
     context 'with unread = true' do
       before do
         Fabricate(:post, feed_id: feed.id)
