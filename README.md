@@ -32,11 +32,13 @@ rake db:migrate
 
 ## Usage
 
-To start server locally (http://localhost:3000/) type:
+To start server locally (http://localhost:5000/) type:
 
 ```
 foreman start
 ```
+
+This will start web server, feed worker and periodic update worker.
 
 ## Testing
 
