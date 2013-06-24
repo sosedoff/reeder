@@ -113,17 +113,31 @@ Create a new feed:
 POST /api/feeds
 ```
 
+Parameters:
+
+- `feed[title]` - Feed name or title (String)
+- `feed[description]` - Optional description (String)
+- `feed[url]` - Direct RSS url (String)
+
 Import a feed from url:
 
 ```
 POST /api/feeds/import
 ```
 
+Params:
+
+- `url` - Direct feed URL (String)
+
 Import feed from OPML:
 
 ```
 POST /api/feeds/import/opml
 ```
+
+Params:
+
+- `opml` - OPML xml content
 
 Delete feed:
 
