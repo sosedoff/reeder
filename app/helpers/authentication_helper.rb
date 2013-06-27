@@ -19,7 +19,7 @@ module AuthenticationHelper
   end
 
   def api_token
-    @api_token ||= params[:api_token]
+    @api_token ||= request['X-API-TOKEN'] || params[:api_token]
   end
 
   def require_authentication?
