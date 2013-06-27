@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     hash == password_hash
   end
 
+  def feeds_count
+    feeds.count
+  end
+
   private
 
   def encrypt_password
