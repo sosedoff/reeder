@@ -33,5 +33,25 @@ angular.module('reeder.controllers', []).
       $scope.feeds       = data;
       $scope.feeds_count = data.length;
     });
+  }).
+
+  controller('SignupController', function SignupController($scope, $http) {
+    $scope.create_account = function() {
+      var user = $scope.user;
+      var form = {user: user};
+
+      if (user.password != user.password_confirmation) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      $http.post('/api/users', form).
+        success(function(data, status) {
+          alert('Account has been created!');
+        }).
+        error(function(data, status) {
+          alert("Unable to create account: " + data.error);
+        });
+    }
   });
 

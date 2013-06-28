@@ -16,5 +16,10 @@ angular.module('reeder', ['reeder.controllers', 'reeder.directives', 'reeder.hel
       controller: 'FeedController'
     });
 
+    $routeProvider.when('/signup', {
+      templateUrl: '/views/signup.html',
+      controller: 'SignupController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
