@@ -1,4 +1,12 @@
-angular.module('reeder', ['reeder.controllers', 'reeder.directives', 'reeder.helpers', 'ngSanitize']).
+var modules = [
+  'reeder.controllers', 
+  'reeder.directives', 
+  'reeder.helpers', 
+  'ngSanitize', 
+  'ngCookies'
+];
+
+angular.module('reeder', modules).
   config(['$routeProvider', function($routeProvider) {
     
     $routeProvider.when('/', {
@@ -14,6 +22,11 @@ angular.module('reeder', ['reeder.controllers', 'reeder.directives', 'reeder.hel
     $routeProvider.when('/feeds/:feed_id', {
       templateUrl: '/views/feed.html', 
       controller: 'FeedController'
+    });
+
+    $routeProvider.when('/signin', {
+      templateUrl: '/views/signin.html',
+      controller: 'SigninController'
     });
 
     $routeProvider.when('/signup', {

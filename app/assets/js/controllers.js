@@ -1,26 +1,29 @@
 angular.module('reeder.controllers', []).
-  controller('IndexController', function IndexController($scope, $http) {
-    $http.get('/api/posts').success(function(resp) {
+  controller('IndexController', function IndexController($scope, $cookies, $http) {
+    var url = "/api/posts?api_token=" + $cookies.api_token;
+
+    $http.get(url).success(function(resp) {
       $scope.posts = resp;
     });
   }).
 
-  controller('FeedsController', function FeedsController($scope, $http) {
-    $http.get("/api/feeds").success(function(resp) {
+  controller('FeedsController', function FeedsController($scope, $cookies, $http) {
+    $http.get("/api/feeds?api_token=" + $cookies.api_token).success(function(resp) {
       $scope.feeds = resp;
     });
   }).
 
-  controller('FeedController', function FeedController($scope, $http, $route, $routeParams) {
+  controller('FeedController', function FeedController($scope, $http, $route, $cookies, $routeParams) {
     var feed_id = $routeParams.feed_id;
+    var api_str = "?api_token=" + $cookies.api_token;
 
     $("a.feed").removeClass('active');
     $("a.feed[data-id=" + feed_id + "]").addClass('active');
 
-    $http.get("/api/feeds/" + feed_id).success(function(resp) {
+    $http.get("/api/feeds/" + feed_id + api_str).success(function(resp) {
       $scope.feed = resp;
 
-      $http.get("/api/feeds/" + feed_id + "/posts").success(function(resp) {
+      $http.get("/api/feeds/" + feed_id + "/posts" + api_str).success(function(resp) {
         $scope.posts_count  = resp.total_entries;
         $scope.current_page = resp.page;
         $scope.posts        = resp.records;
@@ -28,11 +31,29 @@ angular.module('reeder.controllers', []).
     });
   }).
 
-  controller('ReederSidebarController', function SidebarController($scope, $http) {
-    $http.get('/api/feeds').success(function(data) {
+  controller('ReederSidebarController', function SidebarController($scope, $http, $cookies) {
+    $http.get('/api/feeds?api_token=' + $cookies.api_token).success(function(data) {
       $scope.feeds       = data;
       $scope.feeds_count = data.length;
     });
+  }).
+
+  controller('SigninController', function SigninController($scope, $cookies, $http) {
+    $scope.authenticate = function() {
+      var form = {
+        email: $scope.email,
+        password: $scope.password
+      };
+
+      $http.post('/api/authenticate', form).
+        success(function(data, status) {
+          console.log(data);
+          $cookies.api_token = data.api_token;
+        }).
+        error(function(data, status) {
+          alert('Invalid email or password');
+        });
+    }
   }).
 
   controller('SignupController', function SignupController($scope, $http) {

@@ -33,6 +33,7 @@ module Reeder
         '/js/angular.js',
         '/js/angular-resource.js',
         '/js/angular-sanitize.js',
+        '/js/angular-cookies.js',
         '/js/styles.js',
         '/js/application.js',
         '/js/controllers.js',
