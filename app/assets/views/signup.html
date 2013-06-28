@@ -1,0 +1,22 @@
+<h1>Sign Up</h1>
+
+<form novalidate class="simple-form">
+  <div>
+    <label>Email</label>
+    <input type="text" ng-model="user.email"/>
+  </div>
+  <div>
+    <label>Name</label>
+    <input type="text" ng-model="user.name" />
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" ng-model="user.password" />
+  </div>
+  <div>
+    <label>Confirm Password</label>
+    <input type="password" ng-model="user.password_confirmation" />
+  </div>
+
+  <button ng-click="create_account()">Create Account</button>
+</form>
