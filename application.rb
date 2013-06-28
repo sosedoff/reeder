@@ -36,6 +36,7 @@ module Reeder
         '/js/styles.js',
         '/js/application.js',
         '/js/controllers.js',
+        '/js/directives.js',
         '/js/helpers.js'
       ]
 
