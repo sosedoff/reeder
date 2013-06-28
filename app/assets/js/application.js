@@ -1,4 +1,4 @@
-angular.module('reeder', ['reeder.controllers', 'reeder.helpers', 'ngSanitize']).
+angular.module('reeder', ['reeder.controllers', 'reeder.directives', 'reeder.helpers', 'ngSanitize']).
   config(['$routeProvider', function($routeProvider) {
     
     $routeProvider.when('/', {

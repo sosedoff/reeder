@@ -28,7 +28,7 @@ angular.module('reeder.controllers', []).
     });
   }).
 
-  controller('SidebarController', function SidebarController($scope, $http) {
+  controller('ReederSidebarController', function SidebarController($scope, $http) {
     $http.get('/api/feeds').success(function(data) {
       $scope.feeds       = data;
       $scope.feeds_count = data.length;
