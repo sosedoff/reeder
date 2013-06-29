@@ -1,18 +1,14 @@
 <reeder-sidebar></reeder-sidebar>
 
 <div class="manage-subscriptions">
-  <h1>Subscriptions</h1>
-  <br/>
+  <h1>Manage Subscriptions</h1>
 
-  <div ng-repeat="feed in feeds">
-    <div><strong>{{ feed.title }}</strong></div>
-    <div>{{ feed.description }}</div>
-    <div>Feed URL: {{ feed.url }}</div>
-    <div>Site URL: {{ feed.site_url }}</div>
-    <div>Last updated at {{ feed.last_modified_at }}</div>
-    <div>{{ feed.posts_count }} posts, {{ feed.unread_posts_count }} unread</div>
-    <div>
-      <a ng-click="delete_feed(feed.id)" class="btn">Delete</a>
+  <div ng-repeat="feed in feeds" class="subscription">
+    <div class="title">{{ feed.title }}</div>
+    <div class="description">{{ feed.description }}</div>
+    <div class="url">{{ feed.url }}</div>
+    <div class="actions">
+      <a ng-click="delete_feed(feed.id)" class="btn">Unsubscribe</a>
     </div>
   </div>
 </div>
