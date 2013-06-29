@@ -99,9 +99,13 @@ angular.module('reeder.controllers', []).
   controller('FeedNavigationController', function FeedNavigationController($scope, $http) {
     $scope.view_full = function() {
       $("#main").removeClass('condensed');
+      $("#view_full").addClass('active');
+      $("#view_condensed").removeClass('active');
     }
 
     $scope.view_condensed = function() {
       $("#main").addClass('condensed');
+      $("#view_condensed").addClass('active');
+      $("#view_full").removeClass('active');
     }
   });
