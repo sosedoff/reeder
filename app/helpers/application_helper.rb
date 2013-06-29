@@ -37,6 +37,7 @@ module ApplicationHelper
       json_response({
         count:    obj.total_entries,
         page:     obj.current_page,
+        pages:    obj.total_pages,
         per_page: obj.per_page,
         records:  presenter
       }, status_code)
