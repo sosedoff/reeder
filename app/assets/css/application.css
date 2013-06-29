@@ -129,7 +129,7 @@ header {
   background: #16a6b6;
 }
 header .inner { padding: 0 20px; }
-header a span {
+header a.logo span {
   position: absolute;
   top: 10px; left: 0;
   background-image: url('/images/logo-white.svg');
@@ -141,7 +141,14 @@ header a span {
   background-repeat: no-repeat;
 
 }
-header a { 
+
+header .profile {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+
+header a.logo { 
   position: relative;
   display: block;
   width: 115px; height: 21px; 

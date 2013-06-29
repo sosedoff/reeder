@@ -129,4 +129,11 @@ angular.module('reeder.controllers', []).
           alert('Post has been bookmarked');
         });
     };
+  }).
+
+  controller('UserController', function UserController($scope, $location, $cookies) {
+    $scope.signout = function() {
+      delete $cookies.api_token;
+      $location.path("/");
+    }
   });
