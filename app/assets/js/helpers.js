@@ -6,6 +6,15 @@ function matchAll(str, regex) {
   return matches;
 }
 
+function formatAuthorName(name) {
+  if (name) {
+    return "by <a href='#'>" + name + "</a>";
+  }
+  else {
+    return "";
+  }
+}
+
 angular.module('reeder.helpers', []).
   filter('postDateFormatter', function() {
     return function(unformatted_date) {
@@ -23,6 +32,12 @@ angular.module('reeder.helpers', []).
   filter('postBookmarkClass', function() {
     return function(post) {
       return post.bookmarked ? 'active' : '';
+    }
+  }).
+
+  filter('postAuthorFormatter', function() {
+    return function(post) {
+      return formatAuthorName(post.author);
     }
   }).
 

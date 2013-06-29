@@ -46,11 +46,9 @@
     <span class="source">
       <a href="#" target="_blank">{{ (feed || post.feed).title }}</a>
     </span>
-    <span class="author">
-      by <a href="#">{{ post.author || 'Unknown' }}</a>
-    </span>
+    <span class="author" ng-bind-html-unsafe="post | postAuthorFormatter"></span>
     <span id="star_{{ post.id }}" class="bookmark {{ post | postBookmarkClass }}" ng-click="bookmark(post.id)" ng-controller="PostController">
-      <i class="icon-star"></i>
+      <i class="icon-star"></i> Bookmark
     </span>
   </span>
   <div class="title">
