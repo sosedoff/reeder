@@ -9,6 +9,16 @@ angular.module('reeder.controllers', []).
     });
   }).
 
+  controller('BookmarkedPostsController', function BookmarkedPostsController($scope, $cookies, $http) {
+    var url = "/api/posts?bookmarked=true&api_token=" + $cookies.api_token;
+
+    $http.get(url).success(function(resp) {
+      $scope.page        = resp.page;
+      $scope.total_pages = resp.total_pages;
+      $scope.posts       = resp.records;
+    });
+  }).
+
   controller('FeedsController', function FeedsController($scope, $cookies, $http) {
     $scope.delete_feed = function(id) {
       $http.delete("/api/feeds/" + id + "?api_token=" + $cookies.api_token).

@@ -14,6 +14,16 @@ angular.module('reeder', modules).
       controller: 'IndexController'
     });
 
+    $routeProvider.when('/recent', {
+      templateUrl: '/views/feed.html', 
+      controller: 'IndexController'
+    });
+
+    $routeProvider.when('/bookmarks', {
+      templateUrl: '/views/feed.html',
+      controller: 'BookmarkedPostsController'
+    });
+
     $routeProvider.when('/feeds', {
       templateUrl: '/views/feeds.html',
       controller: 'FeedsController'
