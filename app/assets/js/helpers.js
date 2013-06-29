@@ -16,6 +16,18 @@ function formatAuthorName(name) {
 }
 
 angular.module('reeder.helpers', []).
+  filter('feedNameFormatter', function() {
+    return function(name) {
+      var str = name;
+
+      if (name.length > 30) {
+        str = name.substring(0, 30) + "...";
+      }
+
+      return str;
+    }
+  }).
+
   filter('postDateFormatter', function() {
     return function(unformatted_date) {
       var date = new Date(unformatted_date);

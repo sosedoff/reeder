@@ -44,7 +44,7 @@
 <section ng-repeat="post in posts">
   <span class="meta">
     <span class="source">
-      <a href="#" target="_blank">{{ (feed || post.feed).title }}</a>
+      <a href="#" target="_blank">{{ (feed || post.feed).title | feedNameFormatter }}</a>
     </span>
     <span class="author" ng-bind-html-unsafe="post | postAuthorFormatter"></span>
     <span id="star_{{ post.id }}" class="bookmark {{ post | postBookmarkClass }}" ng-click="bookmark(post.id)" ng-controller="PostController">
