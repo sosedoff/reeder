@@ -14,6 +14,12 @@ angular.module('reeder.helpers', []).
     };
   }).
 
+  filter('postSanitizer', function($sanitize) {
+    return function(text) {
+      return $sanitize(text);
+    }
+  }).
+
   filter('postFormatter', function() {
     return function(post) {
       var content = post.content;

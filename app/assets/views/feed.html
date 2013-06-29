@@ -57,5 +57,5 @@
       <a href="{{ post.url }}" target="_blank" ng-bind-html-unsafe="post.title"></a>
     </h1>
   </div>
-  <div class="content" ng-bind-html-unsafe="post | postFormatter"></div>
+  <div class="content" ng-bind-html-unsafe="post | postFormatter | postSanitizer"></div>
 </section>
