@@ -119,6 +119,10 @@ describe Reeder::Application do
     end
   end
 
+  describe 'POST /api/feeds/:id/read_all' do
+    pending
+  end
+
   describe 'DELETE /api/feeds/:id' do
     it 'returns error if feed does not exist' do
       delete '/api/feeds/12345', api_token: api_token

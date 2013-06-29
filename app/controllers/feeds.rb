@@ -57,6 +57,10 @@ class Reeder::Application
     present(feeds, as: :feed)
   end
 
+  post '/api/feeds/:id/read_all' do
+    present(feed.read_all, as: :feed)
+  end
+
   delete '/api/feeds/:id' do
     if feed.destroy
       json_response(deleted: true)
