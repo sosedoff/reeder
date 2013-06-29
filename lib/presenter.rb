@@ -10,7 +10,11 @@ class Presenter
     hash = {}
 
     self.class.attributes.each do |attr|
-      hash[attr] = record.send(attr)
+      if self.respond_to?(attr)
+        hash[attr] = self.send(attr)
+      else
+        hash[attr] = record.send(attr)
+      end
     end
 
     if options[:include]
