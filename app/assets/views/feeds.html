@@ -4,7 +4,12 @@
   <h1>Manage Subscriptions</h1>
 
   <div ng-repeat="feed in feeds" class="subscription">
-    <div class="title">{{ feed.title }}</div>
+    <div class="title">
+      {{ feed.title }}
+      <span class="status {{ feed.status }}">
+        <i class="icon-circle"></i>
+      </span>
+    </div>
     <div class="description">{{ feed.description }}</div>
     <div class="url">{{ feed.url }}</div>
     <div class="actions">

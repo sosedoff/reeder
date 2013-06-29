@@ -15,8 +15,11 @@ class FeedSync
         @feed.posts.create(new_post_attributes(e))
       end
       
+      @feed.status = 'ok'
       @feed.last_modified_at = details.last_modified
       @feed.restat!(true)
+    else
+      @feed.update_attribute(:status, 'error')
     end
   end
 
