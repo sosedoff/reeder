@@ -542,7 +542,7 @@ section .meta .author {
 section .meta .author a {
   color: rgba(68, 66, 62, 1);
   font-weight: bold;
-  margin-right: 6px;
+  margin-right: 10px;
 }
 
 section .title {
@@ -561,7 +561,7 @@ section .title .date {
 section .meta .bookmark {
   float: left;
   color: #ccc;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
 }
 
