@@ -43,7 +43,7 @@ angular.module('reeder.controllers', []).
   }).
 
   controller('ReederSidebarController', function SidebarController($scope, $http, $cookies) {
-    $http.get('/api/feeds?api_token=' + $cookies.api_token).success(function(data) {
+    $http.get('/api/feeds/active?api_token=' + $cookies.api_token).success(function(data) {
       $scope.feeds       = data;
       $scope.feeds_count = data.length;
     });

@@ -3,6 +3,10 @@ class Reeder::Application
     present(recent_feeds, as: :feed)
   end
 
+  get '/api/feeds/active' do
+    present(active_feeds, as: :feed)
+  end
+
   get '/api/feeds/:id' do
     present(feed, as: :feed)
   end
@@ -87,5 +91,9 @@ class Reeder::Application
 
   def recent_feeds
     api_user.feeds.recent
+  end
+
+  def active_feeds
+    api_user.feeds.active.recent
   end
 end
