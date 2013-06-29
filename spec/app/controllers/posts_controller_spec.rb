@@ -15,11 +15,11 @@ describe Reeder::Application do
 
       get '/api/posts', api_token: user.api_token
       expect(last_response.status).to eq 200
-      expect(json_response.count).to eq 1
+      expect(json_response['count']).to eq 1
 
       get '/api/posts', api_token: user2.api_token
       expect(last_response.status).to eq 200
-      expect(json_response.count).to eq 0
+      expect(json_response['count']).to eq 0
     end
 
     it 'includes post feed' do
@@ -28,7 +28,7 @@ describe Reeder::Application do
       get '/api/posts', api_token: user.api_token
 
       expect(last_response.status).to eq 200
-      expect(json_response.first['feed']).to be_a Hash
+      expect(json_response['records'].first['feed']).to be_a Hash
     end
 
     context 'with unread = true' do
@@ -41,8 +41,8 @@ describe Reeder::Application do
         get '/api/posts', api_token: user.api_token, unread: true
 
         expect(last_response.status).to eq 200
-        expect(json_response.count).to eq 1
-        expect(json_response.first['read_at']).to eq nil
+        expect(json_response['count']).to eq 1
+        expect(json_response['records'].first['read_at']).to eq nil
       end
     end
 
@@ -55,8 +55,8 @@ describe Reeder::Application do
         get '/api/posts', api_token: user.api_token, bookmarked: true
 
         expect(last_response.status).to eq 200
-        expect(json_response.count).to eq 1
-        expect(json_response.first['bookmarked']).to eq true
+        expect(json_response['count']).to eq 1
+        expect(json_response['records'].first['bookmarked']).to eq true
       end
     end
   end
