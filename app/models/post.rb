@@ -12,14 +12,14 @@ class Post < ActiveRecord::Base
   validates :content,      presence: true
   validates :published_at, presence: true
 
-pg_search_scope :search_by_query,
-  against: [:title, :author, :content],
-  using: {
-    tsearch: {
-      prefix: true,
-      dictionary: :english
+  pg_search_scope :search_by_query,
+    against: [:title, :author, :content],
+    using: {
+      tsearch: {
+        prefix: true,
+        dictionary: :english
+      }
     }
-  }
 
   scope :recent, order('published_at DESC')
   scope :unread, where(read_at: nil)
