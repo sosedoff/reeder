@@ -51,6 +51,10 @@ GEM
     multi_json (1.7.7)
     nokogiri (1.5.10)
     pg (0.15.1)
+    pg_search (0.6.4)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -127,6 +131,7 @@ DEPENDENCIES
   json
   loofah (~> 1.2)
   pg
+  pg_search (~> 0.6)
   pry
   rack-contrib
   rack-revision
