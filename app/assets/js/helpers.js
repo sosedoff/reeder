@@ -19,7 +19,7 @@ angular.module('reeder.helpers', []).
   filter('postDateFormatter', function() {
     return function(unformatted_date) {
       var date = new Date(unformatted_date);
-      return moment(date).format('MMM Do, hh:mm a');
+      return moment(date).format('MMM Do, YYYY');
     };
   }).
 
