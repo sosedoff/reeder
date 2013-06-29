@@ -108,7 +108,7 @@ a.button,
 body {
   color: rgba(68, 66, 62, 0.7);
   font-family: Helvetica, Arial, sans-serif;
-  background: #e3e4e5;
+  background: #f3f4f5;
   font-size: 12px;
   line-height: 18px;
 }
@@ -125,8 +125,8 @@ header {
   width: 100%;
   height: 40px; line-height: 40px;
   color: #fff;
-/*  background: rgba(49, 158, 191, 0.8); */
-  background: #185059;
+/*  background: #185059;*/
+  background: #16a6b6;
 }
 header .inner { padding: 0 20px; }
 header a span {
@@ -145,7 +145,8 @@ header a {
   position: relative;
   display: block;
   width: 115px; height: 21px; 
-  color: #185059;  
+/*  color: #185059;  */
+  color: #16a6b6;
   padding: 10px 0 0; 
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 18px;
@@ -157,23 +158,35 @@ header a {
   position: absolute;
   top: 40px; right: 0; left: 0;
   min-width: 805px;
-  height: 30px;
-  padding: 15px 30px;
-  background: #e3e4e5;
+  height: 40px;
+  padding: 0px 30px 0 0;
+  background: #f3f4f5;
   border-bottom: solid 1px rgba(172, 175, 156, 0.15);
   z-index: 100;
 }
+
+.controls .logo {
+  display: none;
+  opacity: 0;
+  float: left;
+  width: 30px; height: 30px;
+  line-height: 30px;
+  background: left 6px no-repeat url('/images/logo-blue.png');
+}
+.controls.fixed .logo { display: block; opacity: 1; }
+
+
 .controls label {
   line-height: 30px;
   float: left;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
-  margin: 0 10px 0 0;
+  margin: 5px 10px 0 0;
 }
 .controls select { 
   float: left; 
   min-width: 100px;
-  margin: 5px 30px 0 0;
+  margin: 10px 30px 0 0;
 }
 /*.controls select {
   position: relative;
@@ -207,20 +220,21 @@ header a {
 }
 .controls ul  {
   float: right;
+  padding: 3px 0 0;
 }
 .controls ul li {
   float: left;
   font-size: 11px;
-  line-height: 30px;
-  margin: 0 0px 0 5px;
+  line-height: 29px;
+  margin: 0 0px 0 2px;
 }
 .controls ul li span,
 .controls ul li a {
   display: block;
-  padding: 7px 10px 0;
+  padding: 5px 10px 0;
+  line-height: 29px;
   cursor: pointer;
   font-weight: normal;
-  border-radius: 2px;
   color: #bbb;
 }
 .controls ul li span:hover {
@@ -240,89 +254,142 @@ header a {
 .controls.fixed {
   position: fixed;
   top: 0px; right: 0; left: 0;
-  height: 30px;
-  padding: 15px 30px;
-  background: #e3e4e5;
+/*  height: 30px;
+  padding: 5px 30px;*/
+  background: rgba(51, 51, 51, 0.9);
   border-bottom: solid 1px rgba(172, 175, 156, 0.15);
-  border-top: solid 3px #185059;
   z-index: 100;
 }
-.controls .logo {
-  display: none;
-  opacity: 0;
-  float: left;
-  width: 30px; height: 30px;
-  line-height: 30px;
-  background: left 6px no-repeat url('/images/logo-blue.png');
+.controls.fixed label { 
+  color: #dedede;
 }
 
-.controls.fixed .logo { display: block; opacity: 1; }
+.controls.fixed ul li span,
+.controls.fixed ul li a {
+  color: #000;
+}
+
+.controls.fixed ul li .active{
+  color: #dedede;
+} 
 
 .controls .addMore {
   float: left;
-  width: 135px;
+ width: 260px;
   padding: 0 30px 0 0;
-  margin: 0 105px 0 0;
+  margin: 0;
 }
-.controls.fixed .addMore { padding: 0;  width: 135px; }
+.controls.fixed .addMore { padding: 0;   }
+.controls.fixed .add { background: #16a6b6; }
 
-.controls .addMore .input {
-  display: none;
-  width: 85px;
-  height: 18px; line-height: 18px;
-  padding: 5px;
-  border: solid 1px rgba(172, 175, 156, 0.15);
-  background: #aaa;
-  border-radius: 3px;
-}
 
 .controls .add {
   display: block;
-  height: 29px; width: 30px;
+  height: 40px; width: 40px;
   padding: 1px 0 0;
-  line-height: 30px;
+  line-height: 40px;
   font-size: 20px;
   font-weight: bold;
   color: #fff;
-  background: rgba(172, 175, 156, 0.7);
+  background: #333;
   text-align: center;
   cursor: pointer;
-  border-radius: 3px;
 }
 .controls .add:hover { background: #ed4732; }
 
-.controls .addMore.expanded .input {
-  display: block;
+.controls .addMore.expanded {
+  margin: 0; 
+}
+.controls .addMore .input {
+  display: none;
+  width: 225px;
+  font-size: 13px;
+  height: 18px; line-height: 18px;
+  padding: 11px;
+  border: none;
   float: left;
   background: #f1f1f1;
 }
+
+.controls .addMore.expanded .input {
+  display: block;
+  background: #fff;
+  width: 195px;
+  margin: 2px 0 0 0;
+  padding: 9px 11px;
+
+}
 .controls .addMore.expanded .add {
   float: right;
-  font-size: 11px;
   font-weight: normal;
-  background: #c44d4d;
-  opacity: 0.8;
+margin: 2px 0 0;
+height: 35px;
+line-height: 35px;
 }
 
-.controls div.search {
+/*============================================================
+ Search field 
+============================================================*/
+.controls .search {
+  position: relative;
   float: left;
+  padding: 0 0 0 5px;
+  margin: 0 15px 0 0;
 }
+.controls .search .input {
+  border: none;
+  width: 55px;
+  line-height: 18px;
+  padding: 8px 11px;
+  margin: 3px 0 0;
+  background: rgba(0, 0, 0, 0.06);
+}
+.controls .search .input:focus,
+.controls.fixed .search .input:focus {
+  width: 130px;
+  background: #fff;
+}
+.controls.fixed .search .input {
+  background: rgba(0, 0, 0, 1);
+}
+.controls.fixed .search i {
+  color: #dedede;
+}
+
+.controls .search input[type=submit] {
+  position: absolute;
+  top: 0; right: 0;
+  height: 34px;
+  line-height: 34px;
+font-size: 0;
+  border: none;
+  background: transparent;
+}
+.controls .search i {
+  position: absolute;
+  height: 34px; line-height: 34px;
+  font-size: 18px; 
+top: 2px;
+right: 7px;
+  z-index: 10;
+}
+
  
 /*============================================================
  Sidebar 
 ============================================================*/
 .side { 
   position: absolute;
-  top: 110px; 
+  top: 90px; 
   left: 0px;
   bottom: 0; 
-  width: 260px;
+  width: 290px;
   padding: 0 0 0 0px;
   overflow: scroll;
 }
 .side.fixed { 
   position: fixed;
-  top: 70px; 
+  top: 60px; 
   bottom: 0; 
   right: 260px;
 }
@@ -351,7 +418,7 @@ header a {
 }
 .side ul li {}
 .side ul li a {
-  padding: 2px 0;
+  padding: 2px 30px 2px 0;
   margin: 0 0 5px;
   font-weight: bold;
   color: #000;
@@ -373,6 +440,9 @@ header a {
 .side ul li.all a {
   padding-left: 35px;
 }
+.side ul li.all ul li {
+  margin: 0 0 1px;
+}
 .side ul li.all ul li a {
   position: relative;
   padding-left: 35px;
@@ -387,14 +457,16 @@ header a {
   margin: 0;
   padding: 3px 15px;
   font-weight: normal;
-  color: #444;
+  color: #777;
 }
 .side ul li ul li a:hover { 
-  background: #eee;
+  background: rgba(172, 175, 156, 0.05);
   color: #000;
 }
 
-.side ul li ul li a.active { background-color: rgba(172, 175, 156, 0.1); }
+.side ul li ul li a.active { 
+  color: #333;
+  background-color: rgba(172, 175, 156, 0.1); }
 
 
 /*============================================================
@@ -404,7 +476,7 @@ main {
   display: block;
   min-width: 800px;
   bottom: 0; right: 0;
-  padding: 80px 25px 20px 290px;
+  padding: 60px 25px 20px 290px;
 
 /*  overflow: scroll;*/
 }
@@ -413,7 +485,7 @@ section {
 /*  margin: 0 0 35px;
   padding: 0 0 20px 150px;*/
   margin: 0 0 25px;
-  padding: 15px 15px 20px 150px;
+  padding: 45px 15px 20px 15px;
   border-bottom: solid 1px rgba(172, 175, 156, 0.15);
 /*  overflow: hidden;*/
   background: #fff;
@@ -428,20 +500,20 @@ section hr {
 
 section .meta {
   position: absolute;
-  top: 20px; left: 0px;
+  top: 10px; left: 0px;
   font-size: 11px;
 }
 section .meta span {
   display: block;
+  float: left;
   line-height: 14px;
-  width: 120px;
   padding: 5px 0;
   margin: 0 0 3px;
   text-align: center;
 }
 section .meta .source {
-  width: 110px;
-  padding: 5px;
+  min-width: 110px;
+  padding: 5px 10px;
 /*  background: #ed4732;*/
   background: #efefef;
   border-left: solid 3px #ed4732; 
@@ -464,7 +536,7 @@ section .meta .source a {
 section .meta .author {
   text-align: left;
   color: rgba(68, 66, 62, 1);
-  opacity: 0.7;
+  opacity: 0.3;
   padding-left: 10px;
 }
 section .meta .author a {
@@ -478,7 +550,7 @@ section .title {
 }
 section .title .date {
   position: absolute;
-  top: 5px; right: 10px;
+  top: -30px; right: 10px;
   text-align: right;
   font-size: 11px;
   font-weight: bold;
