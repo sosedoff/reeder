@@ -4,6 +4,7 @@ APP_CLASS = 'Reeder::Application'
 require 'bundler/setup'
 require 'sinatra/activerecord/rake'
 require 'sinatra/assetpack/rake'
+require 'pg_search/tasks'
 require 'pry'
 require './application.rb'
 
@@ -18,4 +19,8 @@ if defined?(RSpec)
     t.pattern = 'spec/**/*_spec.rb'
     t.verbose = false
   end
+end
+
+task :environment do
+  # NOOP
 end
