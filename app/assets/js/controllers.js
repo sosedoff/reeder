@@ -9,7 +9,12 @@ angular.module('reeder.controllers', []).
 
   controller('FeedsController', function FeedsController($scope, $cookies, $http) {
     $scope.delete_feed = function(id) {
-      alert(id);
+      $http.delete("/api/feeds/" + id + "?api_token=" + $cookies.api_token).
+        success(function(data, status) {
+          if (data.deleted) {
+            alert('Deleted');
+          }
+        });
     };
 
     $http.get("/api/feeds?api_token=" + $cookies.api_token).success(function(resp) {
