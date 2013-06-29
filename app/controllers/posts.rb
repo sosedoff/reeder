@@ -3,6 +3,27 @@ class Reeder::Application
     present(recent_posts, as: :post, include: :feed, paginate: true)
   end
 
+  get '/api/posts/search' do
+    query = params[:query].to_s.strip
+
+    if query.blank?
+      json_error("Search query required")
+    end
+
+    scope = Post.
+      includes(:feed).
+      joins(:feed).
+      where('feeds.user_id = ?', api_user.id).
+      search_by_query(query)
+
+    posts = scope.paginate(
+      page: params[:page], 
+      per_page: posts_per_page
+    )
+
+    present(posts, as: :post, include: :feed, paginate: true)
+  end
+
   get '/api/posts/:id' do
     present(find_post, as: :post)
   end
