@@ -556,6 +556,19 @@ section .title .date {
   font-weight: bold;
   color: rgba(68, 66, 62, 0.4);
 }
+
+section .meta .bookmark {
+  float: left;
+  color: #ccc;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+section .meta .bookmark:hover, section .meta .bookmark.active {
+  color: #ed4732;
+}
+
 section .title h1 {
   font-family: "HelveticaNeue-CondensedBold", "HelveticaNeueBoldCondensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-stretch: condensed;

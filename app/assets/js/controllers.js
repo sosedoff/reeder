@@ -115,4 +115,18 @@ angular.module('reeder.controllers', []).
       $("#view_condensed").addClass('active');
       $("#view_full").removeClass('active');
     }
+  }).
+
+  controller('PostController', function PostController($scope, $cookies,$http) {
+    $scope.bookmark = function(post_id) {
+      $scope.post_id = post_id;
+      var url = "/api/posts/" + post_id + "/bookmark";
+      url += "?api_token=" + $cookies.api_token;
+
+      $http.post(url).
+        success(function(data, status) {
+          $("#star_" + $scope.post_id).addClass('active');
+          alert('Post has been bookmarked');
+        });
+    };
   });

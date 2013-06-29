@@ -49,6 +49,9 @@
     <span class="author">
       by <a href="#">{{ post.author || 'Unknown' }}</a>
     </span>
+    <span id="star_{{ post.id }}" class="bookmark {{ post | postBookmarkClass }}" ng-click="bookmark(post.id)" ng-controller="PostController">
+      <i class="icon-star"></i>
+    </span>
   </span>
   <div class="title">
     <span class="date">

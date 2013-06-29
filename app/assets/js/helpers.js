@@ -20,6 +20,12 @@ angular.module('reeder.helpers', []).
     }
   }).
 
+  filter('postBookmarkClass', function() {
+    return function(post) {
+      return post.bookmarked ? 'active' : '';
+    }
+  }).
+
   filter('postFormatter', function() {
     return function(post) {
       var content = post.content;
