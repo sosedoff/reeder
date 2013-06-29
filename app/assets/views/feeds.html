@@ -1,14 +1,18 @@
 <reeder-sidebar></reeder-sidebar>
 
-<h1>Subscriptions</h1>
-<br/>
+<div class="manage-subscriptions">
+  <h1>Subscriptions</h1>
+  <br/>
 
-<div ng-repeat="feed in feeds">
-  <div><strong>{{ feed.title }}</strong></div>
-  <div>{{ feed.description }}</div>
-  <div>Feed URL: {{ feed.url }}</div>
-  <div>Site URL: {{ feed.site_url }}</div>
-  <div>Last updated at {{ feed.last_modified_at }}</div>
-  <div>{{ feed.posts_count }} posts, {{ feed.unread_posts_count }} unread</div>
-  <hr/>
+  <div ng-repeat="feed in feeds">
+    <div><strong>{{ feed.title }}</strong></div>
+    <div>{{ feed.description }}</div>
+    <div>Feed URL: {{ feed.url }}</div>
+    <div>Site URL: {{ feed.site_url }}</div>
+    <div>Last updated at {{ feed.last_modified_at }}</div>
+    <div>{{ feed.posts_count }} posts, {{ feed.unread_posts_count }} unread</div>
+    <div>
+      <a ng-click="delete_feed(feed.id)" class="btn">Delete</a>
+    </div>
+  </div>
 </div>

@@ -698,6 +698,9 @@ left: 0px;
 font-size: 11px;
 }
 
+div.manage-subscriptions {
+  background: #fff;
+}
 
 /*============================================================
  Clears

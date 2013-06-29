@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.add').click(function() {
+  $('.add').on('click', function() {
     $('.addMore').toggleClass('expanded');
     $('.add').toggle();
   }); 
@@ -13,7 +13,7 @@ $(document).ready(function() {
     $('main').removeClass('condensed');
   }); 
 
-  $('.options li span.condensed').click(function() {
+  $('.options li span.condensed').on('click', function() {
     $('main').addClass('condensed');
   }); 
 

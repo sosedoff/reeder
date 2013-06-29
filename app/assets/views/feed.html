@@ -2,9 +2,9 @@
 
 <div class="controls">
   <a href="#" class="logo"></a>
-  <div class="addMore">
+  <div class="addMore" ng-controller="FeedImportController">
     <input type="text" class="input" />
-    <span class="add"><i class="icon-plus-sign"></i></span>
+    <span class="add" ng-click="import_feed()"><i class="icon-plus-sign"></i></span>
     <span class="add" style="display: none;">Add</span>
   </div>
 
@@ -21,14 +21,14 @@
   <select>
     <option>date</option>
   </select>
-  <ul class="options">
+  <ul class="options" ng-controller="FeedNavigationController">
     <li>
-      <span class="full active">
+      <span class="full active" ng-click="view_full()">
         <i class="icon-th-list"></i>
       </span>
     </li>
     <li>
-      <span class="condensed">
+      <span class="condensed" ng-click="view_condensed()">
         <i class="icon-align-justify"></i>
       </span>
     </li>

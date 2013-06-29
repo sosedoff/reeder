@@ -8,6 +8,10 @@ angular.module('reeder.controllers', []).
   }).
 
   controller('FeedsController', function FeedsController($scope, $cookies, $http) {
+    $scope.delete_feed = function(id) {
+      alert(id);
+    };
+
     $http.get("/api/feeds?api_token=" + $cookies.api_token).success(function(resp) {
       $scope.feeds = resp;
     });
@@ -56,6 +60,22 @@ angular.module('reeder.controllers', []).
     }
   }).
 
+  controller('FeedImportController', function FeedImportController($scope, $cookies, $http) {
+    $scope.import_feed = function() {
+      var url = prompt('Enter feed URL');
+      
+      var params = {
+        api_token: $cookies.api_token,
+        url: url
+      };
+
+      $http.post("/api/feeds/import", params).
+        success(function(data, status) {
+          console.log(data);
+        });
+    }
+  }).
+
   controller('SignupController', function SignupController($scope, $http) {
     $scope.create_account = function() {
       var user = $scope.user;
@@ -74,5 +94,14 @@ angular.module('reeder.controllers', []).
           alert("Unable to create account: " + data.error);
         });
     }
-  });
+  }).
 
+  controller('FeedNavigationController', function FeedNavigationController($scope, $http) {
+    $scope.view_full = function() {
+      $("#main").removeClass('condensed');
+    }
+
+    $scope.view_condensed = function() {
+      $("#main").addClass('condensed');
+    }
+  });
