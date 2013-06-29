@@ -3,7 +3,9 @@ angular.module('reeder.controllers', []).
     var url = "/api/posts?api_token=" + $cookies.api_token;
 
     $http.get(url).success(function(resp) {
-      $scope.posts = resp;
+      $scope.page        = resp.page;
+      $scope.total_pages = resp.total_pages;
+      $scope.posts       = resp.records;
     });
   }).
 
