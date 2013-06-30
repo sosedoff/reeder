@@ -38,8 +38,8 @@ module Reeder
         '/js/application.js',
         '/js/controllers.js',
         '/js/directives.js',
-        '/js/helpers.js',
-        '/js/formatters.js'
+        '/js/formatters.js',
+        '/js/helpers.js'
       ]
 
       js_compression  :jsmin
