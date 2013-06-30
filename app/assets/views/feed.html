@@ -9,9 +9,11 @@
   </div>
 
   <div class="search">
-    <input class="input" type="text" name="q" placeholder="" />
-    <i class="icon-search"></i>
-    <input type="submit" value="Search" />
+    <form ng-controller="SearchController">
+      <input class="input" type="text" placeholder="" ng-form="search_query" />
+      <i class="icon-search"></i>
+      <input type="submit" value="Search" ng-click="search_posts()"/>
+    </form>
   </div>
 
   <label>Mark as read</label>

@@ -19,6 +19,19 @@ angular.module('reeder.controllers', []).
     });
   }).
 
+  controller('SearchController', function SearchController($scope, $cookies, $http) {
+    $scope.search_posts = function() {
+      var url = "/api/posts/search?api_token=" + $cookies.api_token;
+      url += "&query=" + $scope.search_query;
+
+      $http.get(url).success(function(resp) {
+        $scope.page        = resp.page;
+        $scope.total_pages = resp.total_pages;
+        $scope.posts       = resp.records;
+      });
+    }
+  }).
+
   controller('FeedsController', function FeedsController($scope, $cookies, $http) {
     $scope.delete_feed = function(id) {
       $http.delete("/api/feeds/" + id + "?api_token=" + $cookies.api_token).
