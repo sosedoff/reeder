@@ -58,6 +58,10 @@ module Reeder
     get '/' do
       erb :index
     end
+
+    get '/splash' do
+      erb :splash, layout: false
+    end
   end
 end
 

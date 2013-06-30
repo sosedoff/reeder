@@ -842,6 +842,21 @@ div.subscription .actions {
   margin-top: 12px;
 }
 
+div.splash {
+  width: 201px;
+  margin: 0px auto;
+  margin-top: 300px;
+  text-align: center;
+}
+
+div.splash img {
+  margin-bottom: 12px;
+}
+
+div.splash a:hover {
+  text-decoration: underline;
+}
+
 /*============================================================
  Clears
 ============================================================*/
