@@ -14,7 +14,7 @@ class Reeder::Application
       includes(:feed).
       joins(:feed).
       where('feeds.user_id = ?', api_user.id).
-      search_by_query(query)
+      search_content(query)
 
     posts = scope.paginate(
       page: params[:page], 

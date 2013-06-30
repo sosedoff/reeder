@@ -22,5 +22,5 @@ if defined?(RSpec)
 end
 
 task :environment do
-  # NOOP
+  require './environment'
 end
