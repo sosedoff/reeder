@@ -90,7 +90,7 @@ class Reeder::Application
   end
 
   def recent_feeds
-    api_user.feeds.recent.order('status ASC')
+    api_user.feeds.active.order('status ASC')
   end
 
   def active_feeds
