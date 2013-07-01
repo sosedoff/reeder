@@ -1,19 +1,21 @@
 <reeder-sidebar></reeder-sidebar>
 
 <div class="controls">
-  <a href="#" class="logo"></a>
-  <div class="addMore" ng-controller="FeedImportController">
-    <input type="text" class="input" />
-    <span class="add" ng-click="import_feed()"><i class="icon-plus"></i></span>
-    <span class="add" style="display: none;">Add</span>
-  </div>
+  <!-- <a href="#" class="logo"></a> -->
+  <div class="sideActions">
+    <div class="addMore" ng-controller="FeedImportController">
+      <input type="text" class="input" />
+      <span class="add" ng-click="import_feed()"><i class="icon-plus"></i></span>
+    </div>
 
-  <div class="search">
-    <form ng-controller="SearchController">
-      <input class="input" type="text" placeholder="" ng-form="search_query" />
-      <i class="icon-search"></i>
-      <input type="submit" value="Search" ng-click="search_posts()"/>
-    </form>
+    <div class="search">
+      <form ng-controller="SearchController">
+        <input type="text" class="input" placeholder="" ng-form="search_query" />
+       
+        <input type="submit" value="Search" ng-click="search_posts()"/>
+         <i class="icon-search"></i>
+      </form>
+    </div>
   </div>
 
   <label>Mark as read</label>
@@ -50,16 +52,26 @@
     </span>
     <span class="author" ng-bind-html-unsafe="post | postAuthorFormatter"></span>
     <span id="star_{{ post.id }}" class="bookmark {{ post | postBookmarkClass }}" ng-click="bookmark(post.id)" ng-controller="PostController">
-      <i class="icon-star"></i> Bookmark
+      <i class="icon-star"></i>
     </span>
   </span>
   <div class="title">
     <span class="date">
       {{ post.published_at | postDateFormatter }}
     </span>
-    <h1>
+    <h2>
       <a href="{{ post.url }}" target="_blank" ng-bind-html-unsafe="post.title"></a>
-    </h1>
+    </h2>
   </div>
   <div class="content" ng-bind-html-unsafe="post | postFormatter | postSanitizer"></div>
 </section>
+
+<script type="text/javascript">
+  $('.search').hover(function() { 
+    $('.search').addClass('focused'); 
+    $('.search .input').focus();
+  });
+  $('.search input').focusout(function() { 
+    $('.search').removeClass('focused'); 
+  });
+</script>
