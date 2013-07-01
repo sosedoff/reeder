@@ -35,11 +35,9 @@ module Reeder
         '/js/angular-sanitize.js',
         '/js/angular-cookies.js',
         '/js/styles.js',
-        '/js/application.js',
-        '/js/controllers.js',
-        '/js/directives.js',
         '/js/formatters.js',
-        '/js/helpers.js'
+        '/js/helpers.js',
+        '/js/reeder/**/**',
       ]
 
       js_compression  :jsmin
@@ -61,6 +59,14 @@ module Reeder
 
     get '/splash' do
       erb :splash, layout: false
+    end
+
+    get '/signin' do
+      erb :signin, layout: false
+    end
+
+    get '/signup' do
+      erb :signup, layout: false
     end
   end
 end

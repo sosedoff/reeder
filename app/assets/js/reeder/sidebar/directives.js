@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('reeder.directives', []).
+angular.module('reeder.sidebar.directives', []).
   directive('reederSidebar', [function() {
     return {
       restrict: 'E',
@@ -11,3 +11,4 @@ angular.module('reeder.directives', []).
       replace: true
     };
   }]);
+
