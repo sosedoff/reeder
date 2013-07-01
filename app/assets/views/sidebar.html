@@ -10,7 +10,7 @@
       <a ng-href="/#/feeds">Subscriptions <b>({{ feeds_count }})</b></a>
       <ul>
         <li ng-repeat="feed in feeds">
-          <a ng-href="/#/feeds/{{ feed.id }}" class="feed" data-id="{{ feed.id }}">{{ feed.title }}</a>
+          <a ng-href="/#/feeds/{{ feed.id }}" class="feed" data-id="{{ feed.id }}">{{ feed.title }} <small>({{ feed.unread_posts_count }})</small></a>
         </li>
       </ul>
     </li>

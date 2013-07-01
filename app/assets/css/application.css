@@ -435,6 +435,11 @@ right: 7px;
   color: #000;
 }
 
+.side ul li small {
+  color: #bbb;
+  font-size: 10px;
+}
+
 .side ul li.all { position: relative; }
 .side ul li.all:before { 
   content: '▶'; 
