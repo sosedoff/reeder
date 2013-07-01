@@ -1,7 +1,34 @@
 <reeder-sidebar></reeder-sidebar>
 
+<div class="controls">
+  <!-- <a href="#" class="logo"></a> -->
+  <div class="sideActions">
+    <div class="addMore" ng-controller="FeedImportController">
+      <input type="text" class="input" />
+      <span class="add" ng-click="import_feed()"><i class="icon-plus"></i></span>
+    </div>
+
+    <div class="search">
+      <form ng-controller="SearchController">
+        <input type="text" class="input" placeholder="" ng-form="search_query" />
+       
+        <input type="submit" value="Search" ng-click="search_posts()"/>
+         <i class="icon-search"></i>
+      </form>
+    </div>
+  </div>
+
+  <ul class="options" ng-controller="FeedNavigationController">
+    <li>
+      <a class="active" ng-href="/#/feeds">
+        <i class="icon-cog"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
 <div class="manage-subscriptions">
-  <h1>Manage Subscriptions</h1>
+  <h2>Manage Subscriptions</h2>
 
   <div ng-repeat="feed in feeds" class="subscription">
     <div class="title">
@@ -13,7 +40,7 @@
     <div class="description">{{ feed.description }}</div>
     <div class="url">{{ feed.url }}</div>
     <div class="actions">
-      <a ng-click="delete_feed(feed.id)" class="btn">Unsubscribe</a>
+      <a ng-click="delete_feed(feed.id)" class="btn"><i class="icon-trash"></i> Unsubscribe</a>
     </div>
   </div>
 </div>

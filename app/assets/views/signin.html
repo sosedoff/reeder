@@ -1,14 +1,19 @@
-<h1>Sign In</h1>
-
-<form novalidate class="simple-form">
-  <div>
-    <label>Email</label>
-    <input type="text" ng-model="email"/>
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password" ng-model="password" />
+<div class="onBoard signin">
+  <div class="formTitle">
+    <h1>Sign In</h1>
+    <p>Almost there.</p>
   </div>
 
-  <button ng-click="authenticate()">Sign In</button>
-</form>
+  <form novalidate class="simple-form">
+    <div>
+      <i class="icon-envelope-alt"></i>
+      <input type="text" ng-model="email" placeholder="type email" />
+    </div>
+    <div>
+      <i class="icon-lock"></i>
+      <input type="password" ng-model="password" placeholder="type password" />
+    </div>
+
+    <button ng-click="authenticate()">Let Me In</button>
+  </form>
+</div>
