@@ -41,7 +41,7 @@ angular.module('reeder', modules).
 
   run(['$http', '$rootScope', '$cookies', function($http, $rootScope, $cookies) {
     if ($cookies.api_token) {
-      $http.defaults.headers.common['X_API_TOKEN'] = $cookies.api_token;
+      $http.defaults.headers.common['X-API-TOKEN'] = $cookies.api_token;
     }
 
     $rootScope.$on('event:auth-loginRequired', function() {
