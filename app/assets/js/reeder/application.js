@@ -5,12 +5,12 @@ var modules = [
   'reeder.signin',
   'reeder.signup',
   'ngSanitize',
-  'ngCookies'
+  'ngCookies',
+  'http-auth-interceptor'
 ];
 
 angular.module('reeder', modules).
   config(['$routeProvider', function($routeProvider) {
-
     $routeProvider.when('/', {
       templateUrl: '/views/feed.html',
       controller: 'IndexController'
@@ -37,5 +37,19 @@ angular.module('reeder', modules).
     });
 
     $routeProvider.otherwise({redirectTo: '/'});
+  }]).
+
+  run(['$http', '$rootScope', '$cookies', function($http, $rootScope, $cookies) {
+    if ($cookies.api_token) {
+      $http.defaults.headers.common['X_API_TOKEN'] = $cookies.api_token;
+    }
+
+    $rootScope.$on('event:auth-loginRequired', function() {
+      window.location = '/signin';
+    });
+
+    $rootScope.$on('event:auth-loginConfirmed', function() {
+      window.location = '/';
+    });
   }]);
 

@@ -34,6 +34,7 @@ module Reeder
         '/js/angular-resource.js',
         '/js/angular-sanitize.js',
         '/js/angular-cookies.js',
+        '/js/http-auth-interceptor.js',
         '/js/styles.js',
         '/js/formatters.js',
         '/js/helpers.js',
