@@ -11,19 +11,22 @@
         <input type="text" class="input" placeholder="" ng-form="search_query" />
        
         <input type="submit" value="Search" ng-click="search_posts()"/>
-         <i class="icon-search"></i>
+        <i class="icon-search"></i>
+        <span class="search-show"></span>
       </form>
     </div>
   </div>
 
-  <label>Mark as read</label>
+ <!--  <label>Mark as read</label>
   <select>
     <option>all the things</option>
   </select>
   <label>Sort by</label>
   <select>
     <option>date</option>
-  </select>
+  </select> -->
+  
+
   <ul class="options" ng-controller="FeedNavigationController">
     <li>
       <span class="full active" id="view_full" ng-click="view_full()">
@@ -41,21 +44,35 @@
       </a>
     </li>
   </ul>
+
+  <ul class="options ArrowsControls">
+    <li>
+      <span class="prev">
+      <i class="icon-chevron-up"></i>
+      </span>
+    </li>
+     <li>
+      <span class="next">
+       <i class="icon-chevron-down"></i>
+      </span>
+    </li>
+  </ul>
 </div>
 
-<section ng-repeat="post in posts">
+<section ng-repeat="post in posts" ng-class="{current: $first}">
   <span class="meta">
     <span class="source">
       <a href="#" target="_blank">{{ (feed || post.feed).title | feedNameFormatter }}</a>
     </span>
     <span class="author" ng-bind-html-unsafe="post | postAuthorFormatter"></span>
-    <span id="star_{{ post.id }}" class="bookmark {{ post | postBookmarkClass }}" ng-click="bookmark(post.id)" ng-controller="PostController">
-      <i class="icon-star"></i>
-    </span>
+   
   </span>
   <div class="title">
     <span class="date">
       {{ post.published_at | postDateFormatter }}
+    </span>
+    <span id="star_{{ post.id }}" class="bookmark {{ post | postBookmarkClass }}" ng-click="bookmark(post.id)" ng-controller="PostController">
+      <i class="icon-star"></i>
     </span>
     <h2>
       <a href="{{ post.url }}" target="_blank" ng-bind-html-unsafe="post.title"></a>
@@ -64,12 +81,4 @@
   <div class="content" ng-bind-html-unsafe="post | postFormatter | postSanitizer"></div>
 </section>
 
-<script type="text/javascript">
-  $('.search').hover(function() { 
-    $('.search').addClass('focused'); 
-    $('.search .input').focus();
-  });
-  $('.search input').focusout(function() { 
-    $('.search').removeClass('focused'); 
-  });
-</script>
+<script src="/js/feed.js"></script>
