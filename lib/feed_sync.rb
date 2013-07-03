@@ -44,7 +44,7 @@ class FeedSync
       title:        entry.title,
       author:       entry.author,
       url:          entry.url,
-      published_at: entry.published,
+      published_at: entry.published || Time.now,
       content:      entry_content(entry)
     }
   end

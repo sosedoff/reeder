@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130629235734) do
   create_table "feeds", :force => true do |t|
     t.integer  "user_id",                                        :null => false
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.string   "url"
     t.string   "site_url"
     t.datetime "last_modified_at"

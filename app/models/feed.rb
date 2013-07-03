@@ -11,7 +11,7 @@ class Feed < ActiveRecord::Base
   validates :url,   presence: true, uniqueness: { scope: :user_id }
 
   scope :recent, order('last_modified_at DESC')
-  scope :active, where('posts_count > 0')
+  scope :active, where(status: 'ok')
 
   after_commit :sync_posts, on: :create
 
