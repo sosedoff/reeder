@@ -27,18 +27,31 @@
 
 <div class="manage-subscriptions">
   <h2>Manage Subscriptions</h2>
-
-  <div ng-repeat="feed in feeds" class="subscription">
-    <div class="title">
-      {{ feed.title }}
-      <span class="status {{ feed.status }}">
-        <i class="icon-circle"></i>
-      </span>
-    </div>
-    <div class="description">{{ feed.description }}</div>
-    <div class="url">{{ feed.url }}</div>
-    <div class="actions">
-      <a ng-click="delete_feed(feed.id)" class="btn"><i class="icon-trash"></i> Unsubscribe</a>
-    </div>
+  <div class="list">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Posts</th>
+          <th>Last Updated</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="feed in feeds" id="feed_{{ feed.id }}">
+          <td class="title">
+            <a ng-href="/#/feeds/{{ feed.id }}">{{ feed.title }}</a><br/>
+            {{ feed.url }}
+          </td>
+          <td class="status">{{ feed.status }}</td>
+          <td class="posts">{{ feed.posts_count }}</td>
+          <td class="timestamp">{{ feed.last_modified_at | postDateFormatter }}</td>
+          <td>
+            <a ng-click="delete_feed(feed.id)" class="btn">Unsubscribe</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

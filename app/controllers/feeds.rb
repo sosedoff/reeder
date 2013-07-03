@@ -90,7 +90,10 @@ class Reeder::Application
   end
 
   def recent_feeds
-    api_user.feeds.recent.order('status ASC')
+    sort_by = 'status ASC'
+    sort_by = 'last_modified_at DESC' if params[:order] == 'modified'
+    
+    api_user.feeds.recent.order(sort_by)
   end
 
   def active_feeds

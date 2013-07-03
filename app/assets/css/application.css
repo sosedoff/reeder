@@ -846,11 +846,12 @@ left: 0px;
 font-size: 11px;
 }
 
-/*============================================================
- Manage subscriptions
-============================================================*/
+/* -------------------------------------------------------------------------- */
+/* Manage Subscriptions */
+/* -------------------------------------------------------------------------- */
+
 div.manage-subscriptions {
-  /*background: #fff;*/
+
 }
 
 div.manage-subscriptions h2 {
@@ -858,32 +859,39 @@ div.manage-subscriptions h2 {
   margin-bottom: 20px;
 }
 
-div.subscription {
+div.manage-subscriptions .list {
   margin-bottom: 12px;
   padding: 12px;
   border-bottom: solid 1px rgba(172, 175, 156, 0.15);
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 1px 1px #cfcfcf;
+  font-size: 13px;
 }
 
-div.subscription .title {
-  font-weight: bold;
-  color: #000 !important;
-  font-size: 14px; 
-  margin-bottom: 8px;
-  height: 18px;
-  line-height: 18px;
+div.manage-subscriptions table th {
+  color: #000;
+  text-align: left;
+  padding: 8px;
 }
 
-div.subscription .title span.status {
-  font-size: 10px;
-  color: #ccc;
-  margin-left: 2px;
-  height: 18px;
-  line-height: 18px;
-  display: inline-block;
+div.manage-subscriptions table thead tr {
 }
+
+div.manage-subscriptions table tbody tr:hover {
+  background: #f8f8f8;
+}
+
+div.manage-subscriptions table td {
+  padding: 8px;
+  vertical-align: middle;
+}
+
+div.manage-subscriptions table td.title { width: 30%; }
+div.manage-subscriptions table td.title a { font-weight: bold; }
+div.manage-subscriptions table td.title a:hover { text-decoration: underline; }
+
+div.manage-subscriptions table td.url {}
 
 div.subscription .title span.status.error {
   color: #e92c35;
@@ -891,10 +899,6 @@ div.subscription .title span.status.error {
 
 div.subscription .title span.status.ok {
   color: #91b067;
-}
-
-div.subscription .actions { 
-  margin-top: 12px;
 }
 
 /*============================================================

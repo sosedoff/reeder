@@ -37,12 +37,12 @@ angular.module('reeder.controllers', []).
       $http.delete("/api/feeds/" + id).
         success(function(data, status) {
           if (data.deleted) {
-            alert('Deleted');
+            $("#feed_" + id).remove();
           }
         });
     };
 
-    $http.get("/api/feeds").success(function(resp) {
+    $http.get("/api/feeds?order=modified").success(function(resp) {
       $scope.feeds = resp;
     });
   }).
