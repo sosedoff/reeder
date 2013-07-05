@@ -14,6 +14,10 @@ require 'bcrypt'
 require 'config/initializers/active_record'
 require 'config/initializers/sidekiq'
 
+module Reeder
+  VERSION = '0.5.0'
+end
+
 autoload :User,          'app/models/user'
 autoload :Feed,          'app/models/feed'
 autoload :Post,          'app/models/post'
