@@ -51,6 +51,7 @@ module Reeder
     end
 
     before '/api*' do
+      headers['X-Reeder-Version'] = Reeder::VERSION
       authenticate_user if require_authentication?
     end
 
