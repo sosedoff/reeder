@@ -4,7 +4,7 @@
       <a ng-href="/#/bookmarks"><i class="icon-star"></i> Bookmarks</a>
     </li>
     <li class="all active">
-      <a ng-href="/#/recent"><i class="icon-reorder"></i> All <small>unread_posts_count</small></a>
+      <a ng-href="/#/recent"><i class="icon-reorder"></i> All Feeds <!--<small>unread_posts_count</small>--></a>
       <ul>
         <li ng-repeat="feed in feeds">
           <a ng-href="/#/feeds/{{ feed.id }}" class="feed" data-id="{{ feed.id }}"><i></i> {{ feed.title }} <small>{{ feed.unread_posts_count }}</small></a>
