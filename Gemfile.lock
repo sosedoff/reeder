@@ -136,7 +136,7 @@ DEPENDENCIES
   rack-contrib
   rack-revision
   rack-test
-  rake
+  rake (~> 10)
   redis
   rspec
   shotgun
