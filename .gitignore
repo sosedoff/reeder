@@ -17,3 +17,4 @@ log/*.log
 _yardoc
 doc/
 public/assets
+node_modules
