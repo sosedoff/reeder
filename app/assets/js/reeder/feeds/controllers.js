@@ -32,37 +32,30 @@ angular.module('reeder.controllers', []).
     }
   }).
 
-  controller('FeedsController', function FeedsController($scope, $cookies, $http) {
+  controller('FeedsController', ['$scope', '$cookies', '$http', 'ReederFeed', function FeedsController($scope, $cookies, $http, ReederFeed) {
     $scope.delete_feed = function(id) {
-      $http.delete("/api/feeds/" + id).
-        success(function(data, status) {
-          if (data.deleted) {
-            $("#feed_" + id).remove();
-          }
-        });
+      ReederFeed.delete({ id: id }, function(response) {
+        if (response.deleted) $('#feed_' + id).remove();
+      });
     };
 
-    $http.get("/api/feeds?order=modified").success(function(resp) {
-      $scope.feeds = resp;
-    });
-  }).
+    $scope.feeds = ReederFeed.query({ order: 'modified' });
+  }]).
 
-  controller('FeedController', function FeedController($scope, $http, $route, $cookies, $routeParams) {
+  controller('FeedController', ['$scope', '$http', '$route', '$cookies', '$routeParams', 'ReederFeed', function FeedController($scope, $http, $route, $cookies, $routeParams, ReederFeed) {
     var feed_id = $routeParams.feed_id;
 
-    $("a.feed").removeClass('active');
-    $("a.feed[data-id=" + feed_id + "]").addClass('active');
-
-    $http.get("/api/feeds/" + feed_id).success(function(resp) {
-      $scope.feed = resp;
-
+    $scope.feed = ReederFeed.get({ id: feed_id }, function() {
       $http.get("/api/feeds/" + feed_id + "/posts").success(function(resp) {
         $scope.posts_count  = resp.total_entries;
         $scope.current_page = resp.page;
         $scope.posts        = resp.records;
       });
     });
-  }).
+
+    $("a.feed").removeClass('active');
+    $("a.feed[data-id=" + feed_id + "]").addClass('active');
+  }]).
 
   controller('FeedImportController', function FeedImportController($scope, $cookies, $http) {
     $scope.import_feed = function() {

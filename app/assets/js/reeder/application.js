@@ -1,6 +1,7 @@
 var modules = [
   'reeder.controllers',
   'reeder.helpers',
+  'reeder.feeds.factories',
   'reeder.sidebar',
   'reeder.signin',
   'reeder.signup',
