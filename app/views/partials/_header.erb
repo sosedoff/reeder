@@ -2,9 +2,14 @@
   <div class="inner">
     <a href="/" class="logo">Reeder</a>
     <ul class="profile">
-      <li>
-        <a ng-click="signout()" ng-controller="UserController">Sign Out</a>
+      <li ng-controller="UserController">
+        <a ng-click="signout()" ng-show="isAuthenticated()">Sign Out</a>
+        <span ng-show="!isAuthenticated()">
+          <a href="/signin">Sign In</a> |
+          <a href="/signup">Sign Up</a>
+        </span>
       </li>
     </ul>
   </div>
 </header>
+

@@ -130,7 +130,6 @@ h5 { font-size: 12px; line-height: 22px; }
 header { 
   width: 100%;
   height: 40px; line-height: 40px;
-  color: #fff;
 /*  background: no-repeat 0px center url('/images/bg-logo.png');*/
 }
 header .inner { padding: 0 10px; }

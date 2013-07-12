@@ -96,9 +96,14 @@ angular.module('reeder.controllers', []).
     };
   }).
 
-  controller('UserController', function UserController($scope, $location, $cookies) {
+  controller('UserController', ['$scope', '$location', '$cookies', function UserController($scope, $location, $cookies) {
+    $scope.isAuthenticated = function() {
+      return angular.isString($cookies.api_token);
+    };
+
     $scope.signout = function() {
       delete $cookies.api_token;
       window.location = '/';
     };
-  });
+  }]);
+
