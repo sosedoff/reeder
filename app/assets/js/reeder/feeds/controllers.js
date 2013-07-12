@@ -99,6 +99,6 @@ angular.module('reeder.controllers', []).
   controller('UserController', function UserController($scope, $location, $cookies) {
     $scope.signout = function() {
       delete $cookies.api_token;
-      $location.path("/");
-    }
+      window.location = '/';
+    };
   });
