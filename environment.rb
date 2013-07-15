@@ -15,7 +15,7 @@ require 'config/initializers/active_record'
 require 'config/initializers/sidekiq'
 
 module Reeder
-  VERSION = '0.5.0'
+  VERSION = '0.6.0'
 end
 
 autoload :User,          'app/models/user'
