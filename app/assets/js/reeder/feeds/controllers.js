@@ -32,10 +32,10 @@ angular.module('reeder.controllers', []).
     }
   }).
 
-  controller('FeedsController', ['$scope', '$cookies', '$http', 'ReederFeed', function FeedsController($scope, $cookies, $http, ReederFeed) {
-    $scope.delete_feed = function(id) {
+  controller('FeedsController', ['$scope', 'ReederFeed', function FeedsController($scope, ReederFeed) {
+    $scope.delete_feed = function(id, index) {
       ReederFeed.delete({ id: id }, function(response) {
-        if (response.deleted) $('#feed_' + id).remove();
+        if (response.deleted) $scope.feeds.splice(index, 1);
       });
     };
 

@@ -48,10 +48,11 @@
           <td class="posts">{{ feed.posts_count }}</td>
           <td class="timestamp">{{ feed.last_modified_at | postDateFormatter }}</td>
           <td>
-            <a ng-click="delete_feed(feed.id)" class="btn">Unsubscribe</a>
+            <a ng-click="delete_feed(feed.id, $index)" class="btn">Unsubscribe</a>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
