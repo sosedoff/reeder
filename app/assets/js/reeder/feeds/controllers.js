@@ -32,10 +32,13 @@ angular.module('reeder.controllers', []).
     }
   }).
 
-  controller('FeedsController', ['$scope', 'ReederFeed', function FeedsController($scope, ReederFeed) {
-    $scope.delete_feed = function(id, index) {
-      ReederFeed.delete({ id: id }, function(response) {
-        if (response.deleted) $scope.feeds.splice(index, 1);
+  controller('FeedsController', ['$rootScope', '$scope', 'ReederFeed', function FeedsController($rootScope, $scope, ReederFeed) {
+    $scope.delete_feed = function(feed, index) {
+      ReederFeed.delete({ id: feed.id }, function(response) {
+        if (response.deleted) {
+          $scope.feeds.splice(index, 1);
+          $rootScope.$broadcast('feedDestroyed', feed);
+        }
       });
     };
 
@@ -57,14 +60,14 @@ angular.module('reeder.controllers', []).
     $("a.feed[data-id=" + feed_id + "]").addClass('active');
   }]).
 
-  controller('FeedImportController', function FeedImportController($scope, $cookies, $http) {
+  controller('FeedImportController', function FeedImportController($rootScope, $scope, $cookies, $http) {
     $scope.import_feed = function() {
       var url = prompt('Enter feed URL');
       var params = { url: url };
 
       $http.post("/api/feeds/import", params).
         success(function(data, status) {
-          console.log(data);
+          $rootScope.$broadcast('feedCreated', data);
         });
     }
   }).
