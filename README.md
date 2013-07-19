@@ -59,6 +59,12 @@ To execute test suite:
 bundle exec rake test
 ```
 
+## TODO
+
+- OPML import with web interface
+- Responsive / mobile layout
+- Better feed processing based on update frequency
+
 ## License
 
 The MIT License (MIT)
