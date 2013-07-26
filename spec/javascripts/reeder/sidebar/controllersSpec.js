@@ -19,31 +19,15 @@ describe('reeder.sidebar.controllers', function() {
       });
     });
 
-    describe('addFeed()', function() {
-      it('pushes new feed on `$scope.feeds`', function() {
-        $httpBackend.flush();
-        ctrl.addFeed('newFeed');
-        expect(scope.feeds).toContain('newFeed');
+    describe('isOk()', function() {
+      it('returns true if feed.status is "ok"', function() {
+        var feed = { status: 'ok' };
+        expect(scope.isOk(feed)).toBe(true);
       });
 
-      it('increments `feeds_count`', function() {
-        $httpBackend.flush();
-        ctrl.addFeed('newFeed');
-        expect(scope.feeds_count).toBe(4);
-      });
-    });
-
-    describe('removeFeed()', function() {
-      it('splices feed on `$scope.feeds`', function() {
-        $httpBackend.flush();
-        ctrl.removeFeed('feed2');
-        expect(scope.feeds).not.toContain('feed2');
-      });
-
-      it('decrements `feeds_count`', function() {
-        $httpBackend.flush();
-        ctrl.removeFeed('feed2');
-        expect(scope.feeds_count).toBe(2);
+      it('returns false if feed.status is not "ok"', function() {
+        var feed = { status: 'not ok' };
+        expect(scope.isOk(feed)).toBe(false);
       });
     });
   });

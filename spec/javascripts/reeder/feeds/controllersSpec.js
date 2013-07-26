@@ -9,8 +9,7 @@ describe('reeder.controllers', function() {
 
       inject(function($injector, _$httpBackend_, $controller, $rootScope) {
         $httpBackend = _$httpBackend_;
-        $httpBackend.when('GET', '/api/feeds?order=modified').respond(['feed1', 'feed2', 'feed3']);
-        rootScope = jasmine.createSpyObj('rootScope', ['$broadcast']);
+        rootScope = { feeds: ['feed1', 'feed2', 'feed3'] };
         scope = $rootScope.$new();
         ReederFeed = $injector.get('ReederFeed');
         ctrl = $controller('FeedsController', {
@@ -21,8 +20,7 @@ describe('reeder.controllers', function() {
       });
     });
 
-    it('gets feeds', function() {
-      $httpBackend.flush();
+    it('gets feeds from `$rootScope`', function() {
       expect(scope.feeds.length).toBe(3);
     });
 
@@ -38,13 +36,6 @@ describe('reeder.controllers', function() {
         scope.delete_feed(1, 0);
         $httpBackend.flush();
         expect(scope.feeds.length).toBe(2);
-      });
-
-      it('broadcasts "feedDestroyed"', function() {
-        $httpBackend.when('DELETE', '/api/feeds').respond({ deleted: true });
-        scope.delete_feed(1, 0);
-        $httpBackend.flush();
-        expect(rootScope.$broadcast).toHaveBeenCalled();
       });
     });
   });
