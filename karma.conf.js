@@ -30,8 +30,19 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/assets/js/reeder/**/**.js': ['coverage']
+    },
+
+    coverageReporter: {
+      type: 'text',
+      dir: 'coverage/'
+    },
 
     // web server port
     port: 9876,

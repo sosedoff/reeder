@@ -3,7 +3,8 @@
     "test": "karma start --single-run"
   },
   "devDependencies": {
-    "karma": "*"
+    "karma": "*",
+    "karma-coverage": "*"
   }
 }
 
