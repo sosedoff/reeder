@@ -18,7 +18,8 @@ module.exports = function(config) {
       'app/assets/js/angular.js',
       'app/assets/js/**/**.js',
       'spec/javascripts/lib/**/*.js',
-      'spec/javascripts/**/*Spec.js'
+      'spec/javascripts/**/*Spec.js',
+      'app/assets/views/**/*.html'
     ],
 
 
@@ -33,6 +34,7 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'],
 
     preprocessors: {
+      'app/assets/views/**/*.html': ['ng-html2js'],
       // source files, that you wanna generate coverage for
       // do not include tests or libraries
       // (these files will be instrumented by Istanbul)
@@ -43,6 +45,12 @@ module.exports = function(config) {
       type: 'text',
       dir: 'coverage/'
     },
+
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/assets',
+    },
+
 
     // web server port
     port: 9876,
