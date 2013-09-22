@@ -1,12 +1,11 @@
 'use strict';
 
-var $httpBackend, ctrl, scope;
-
 describe('reeder.sidebar.controllers', function() {
   describe('ReederSidebarController', function() {
-    beforeEach(function() {
-      module('reeder.sidebar.controllers');
+    var $httpBackend, ctrl, scope;
 
+    beforeEach(module('reeder.sidebar.controllers'));
+    beforeEach(function() {
       inject(function($controller, $rootScope, _$httpBackend_) {
         $httpBackend = _$httpBackend_;
         $httpBackend.when('GET', '/api/feeds/active').respond(['feed1', 'feed2', 'feed3']);
