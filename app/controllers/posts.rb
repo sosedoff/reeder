@@ -49,7 +49,7 @@ class Reeder::Application
   end
 
   def posts_per_page
-    25
+    10
   end
 
   def recent_posts
