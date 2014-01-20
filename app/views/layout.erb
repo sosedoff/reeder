@@ -5,7 +5,7 @@
     <title>Reeder</title>
     <%= css :app, :media => 'screen' %>
   </head>
-  <body>
+  <body ng-show="authenticated" ng-cloak>
     <div id="wrapper">
       <div class="inner">
         <%= render_partial 'partials/_header' %>

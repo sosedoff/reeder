@@ -44,6 +44,7 @@ angular.module('reeder', modules).
     if ($cookies.api_token) {
       $http.defaults.headers.common['X-API-TOKEN'] = $cookies.api_token;
       $rootScope.feeds = ReederFeed.query({ order: 'modified' });
+      $rootScope.authenticated = true;
     }
 
     $rootScope.$on('event:auth-loginRequired', function() {
@@ -51,6 +52,7 @@ angular.module('reeder', modules).
     });
 
     $rootScope.$on('event:auth-loginConfirmed', function() {
+      $rootScope.authenticated = true;
       window.location = '/';
     });
   }]);
