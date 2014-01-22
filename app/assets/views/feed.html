@@ -64,7 +64,7 @@
     <span class="source">
       <a href="#" target="_blank">{{ (feed || post.feed).title | feedNameFormatter }}</a>
     </span>
-    <span class="author" ng-bind-html-unsafe="post | postAuthorFormatter"></span>
+    <span class="author" ng-bind-html="post | postAuthorFormatter"></span>
    
   </span>
   <div class="title">
@@ -75,10 +75,10 @@
       <i class="icon-star"></i>
     </span>
     <h2>
-      <a href="{{ post.url }}" target="_blank" ng-bind-html-unsafe="post.title"></a>
+      <a href="{{ post.url }}" target="_blank" ng-bind-html="post.title"></a>
     </h2>
   </div>
-  <div class="content" ng-bind-html-unsafe="post | postFormatter | postSanitizer"></div>
+  <div class="content" ng-bind-html="post | postFormatter | postSanitizer"></div>
 </section>
 
 <script src="/js/feed.js"></script>

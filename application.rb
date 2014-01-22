@@ -32,6 +32,7 @@ module Reeder
         '/js/moment.js',
         '/js/angular.js',
         '/js/angular-resource.js',
+        '/js/angular-route.js',
         '/js/angular-sanitize.js',
         '/js/angular-cookies.js',
         '/js/http-auth-interceptor.js',

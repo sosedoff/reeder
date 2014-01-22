@@ -5,6 +5,7 @@ var modules = [
   'reeder.sidebar',
   'reeder.signin',
   'reeder.signup',
+  'ngRoute',
   'ngSanitize',
   'ngCookies',
   'http-auth-interceptor'
