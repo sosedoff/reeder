@@ -6,13 +6,12 @@ describe User do
     emails = %w{mail@mail.com mail@mail.borg adfafafadfa}
     users = []
     3.times do |i|
-      users << User.new(name: "John Doe", email: emails[i],
-                password: "123456", password_confirmation: "123456").valid?
+      users << Fabricate.build(:user, email: emails[i]).valid?
     end
 
-    expect(users[0]).to eq(true)
-    expect(users[1]).to eq(false)
-    expect(users[2]).to eq(false)
+    expect(users[0]).to eq true
+    expect(users[1]).to eq false
+    expect(users[2]).to eq false
   end
 
   describe '#generate_api_token' do
