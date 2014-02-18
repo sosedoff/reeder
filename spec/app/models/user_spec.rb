@@ -1,6 +1,19 @@
 require 'spec_helper'
 
 describe User do
+
+  it "validates user email" do
+    emails = %w{mail@mail.com mail@mail.borg adfafafadfa}
+    users = []
+    3.times do |i|
+      users << Fabricate.build(:user, email: emails[i]).valid?
+    end
+
+    expect(users[0]).to eq true
+    expect(users[1]).to eq false
+    expect(users[2]).to eq false
+  end
+
   describe '#generate_api_token' do
     let(:user) { Fabricate.build(:user) }
 

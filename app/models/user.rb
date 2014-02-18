@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
                        length: { in: 6..64 },
                        if: :validate_password?
 
+  validate :check_email_correctness
+
   before_save :encrypt_password
   before_save :generate_perishable_token, on: :create
   before_save :generate_api_token, on: :create
@@ -53,5 +55,14 @@ class User < ActiveRecord::Base
   def generate_perishable_token
     token = BCrypt::Engine.generate_salt(12)
     self.perishable_token = Base64.encode64(token).strip
+  end
+
+  def check_email_correctness
+     # email checking regex taken from http://habrahabr.ru/post/55820/
+    regex = %r{^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$}
+
+    unless self.email =~ regex
+      errors.add(:email, "incorrect email address")
+    end
   end
 end
